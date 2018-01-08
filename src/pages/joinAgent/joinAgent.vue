@@ -86,20 +86,20 @@ export default {
       );
     },
     checkMemberName(a,b) {
-      let reg = /^[A-Za-z0-9]+$/g;
+      let reg =  /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_-]{6,16}$/g;
       if (!reg.test(this.form[b])) {
         this.$message({
-          message: a+"只能输入数字或字母",
+          message: a+"只能输入6-16位字母数字组合",
           type: "warning"
         });
         this.form[b] = null;
       }
     },
     checkMemberPsw(a,b){
-      let reg = /^[A-Za-z0-9]{6,}$/g;
+      let reg =  /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/g;
       if (!reg.test(this.form[b])) {
         this.$message({
-          message: a+"只能输入数字或字母,且最少6位",
+          message: a+"只能输入6-16位字母数字组合",
           type: "warning"
         });
         this.form[b] = null;
@@ -117,7 +117,7 @@ export default {
       ) {
         if (this.form.psw1 == this.form.psw2) {
           if (this.form.verify == this.verify) {
-            //console.log('jinlaile')
+            // console.log('jinlaile')
             let obj = {};
             obj.memberName = this.form.user;
             obj.passWord = this.md5(this.form.psw1);

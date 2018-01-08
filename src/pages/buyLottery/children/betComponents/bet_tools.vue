@@ -177,6 +177,10 @@ export default {
         this.$alert('您还没有选择号码或者选择号码不全', '温馨提示', {
           confirmButtonText: '确定'
         })
+      } else if(this.betsCount > 2000){
+        this.$alert('最大投注数为2000注', '温馨提示', {
+          confirmButtonText: '确定'
+        })
       } else {
         let odds = []
         if (

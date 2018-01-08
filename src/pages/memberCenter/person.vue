@@ -398,7 +398,7 @@ export default {
             })
           }else{
               this.$message({
-              message: '请绑定银行卡',
+              message: '试玩账号不能提现',
               type: 'warning'
             });
           }
@@ -453,6 +453,9 @@ export default {
               message: res.data.message,
               type: "success"
             });
+            this.logPSW.oldPassword = '';
+            this.logPSW.newPassword1= '';
+            this.logPSW.newPassword2 = '';
           } else {
             this.$message({
               message: res.data.message,
@@ -460,7 +463,7 @@ export default {
             });
           }
         });
-      } 
+      }
     },
     addBank() {
       let obj = {};

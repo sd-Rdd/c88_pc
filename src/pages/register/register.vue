@@ -95,11 +95,11 @@ export default {
       this.verify = ccaa.randomFn(1000, 9999)
     },
     checkValue(a, b) {
-      let reg = /^[A-Za-z0-9]{6,}$/g
+      let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/g
       if (this.form[b]) {
         if (!reg.test(this.form[b])) {
           this.$message({
-            message: a + '只能输入数字或字母,且最少6位',
+            message: a + '只能输入字母数字组合,且最少6位',
             type: 'warning'
           })
           this.form[b] = null
@@ -107,7 +107,7 @@ export default {
       }
     },
     checkMemberName() {
-      let reg = /^[A-Za-z0-9]+$/g
+      let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_-]{6,16}$/g
       if (this.form.user) {
         if (reg.test(this.form.user)) {
           let obj = { memberName: this.form.user }
@@ -132,7 +132,7 @@ export default {
             })
         } else {
           this.$message({
-            message: '用户名只能输入数字或字母',
+            message: '用户名必须是6-12位字母数字或_-组合',
             type: 'warning'
           })
           this.form.user = null

@@ -144,6 +144,13 @@ export default {
             .catch(res => {
               console.log(res);
             });
+          e.target.disabled = true; //防止在网络不好的情况下多次请求，使数据库数据重复
+        } else {
+          this.$message({
+            message: "验证码输入错误",
+            type: "warning"
+          });
+          this.getRandom();
         }
       } else {
         this.$message({

@@ -118,7 +118,7 @@ export default {
 .index_7 .list ul li span {
   vertical-align: middle;
   overflow: hidden;
-  width: 80px;
+  /*width: 80px;*/
   display: inline-block;
   text-align: left;
   padding-left: 8px;
@@ -137,6 +137,7 @@ export default {
   vertical-align: middle;
   overflow: hidden;
   text-align: right;
+  width: 120px;
 }
 .number {
   width: 18px !important;
