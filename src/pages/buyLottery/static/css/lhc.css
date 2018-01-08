@@ -1,0 +1,1262 @@
+.lhc-play-choice {
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(#eceaea, #fff, #e7e7e7);
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 #e6e6e6;
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 2px
+}
+
+.lhc-play-choice div {
+    width: 80px;
+    height: 32px;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1px
+}
+
+.lhc-play-choice div:hover {
+    background-color: #ffdddc
+}
+
+.lhc-play-choice .play-selected {
+    background-color: #e94335;
+    color: #fff
+}
+
+.lhc-play-choice .play-selected:hover {
+    background-color: #e94335
+}
+
+.lhc-bet-area {
+    width: 1000px;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column
+}
+
+.lhc-bet-area .tool-bar {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column
+}
+
+.lhc-bet-area .tool-bar .funs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+.lhc-bet-area .tool-bar .funs .quick-money-setting {
+    width: 137px;
+    height: 32px;
+    background-color: #ff5755;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.lhc-bet-area .tool-bar .funs .quick-money-setting:hover {
+    background-color: #ff7c7a
+}
+
+.lhc-bet-area .tool-bar .funs .quick-money-setting i {
+    color: #fff;
+    font-size: 24px;
+    padding-top: 4px;
+    padding-right: 4px
+}
+
+.lhc-bet-area .tool-bar .funs .quick-money-setting span {
+    font-size: 14px;
+    color: #fff
+}
+
+.lhc-bet-area .tool-bar .funs .quick-bet {
+    width: 110px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: #538dff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.lhc-bet-area .tool-bar .funs .quick-bet:hover {
+    background-color: #8bb1ff
+}
+
+.lhc-bet-area .tool-bar .funs .quick-bet i {
+    color: #fff;
+    padding-right: 5px
+}
+
+.lhc-bet-area .tool-bar .funs .quick-bet span {
+    font-size: 14px;
+    color: #fff
+}
+
+.lhc-bet-area .tabs {
+    position: relative;
+    background-color: #fff3ee;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.lhc-bet-area .tabs>div {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 30px;
+    transition: background-color .3s linear
+}
+
+.lhc-bet-area .tabs>div label {
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #e94335
+}
+
+.lhc-bet-area .tabs>div span {
+    font-size: 14px;
+    color: #e94335;
+    margin-top: -8px;
+    line-height: 25px
+}
+
+.lhc-bet-area .tabs .tab-selected {
+    background-color: #e94335
+}
+
+.lhc-bet-area .tabs .tab-selected label,
+.lhc-bet-area .tabs .tab-selected span {
+    color: #fff
+}
+
+ul.subTabs {
+    margin-top: -20px;
+    border: 1px solid #e94335;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row
+}
+
+ul.subTabs li {
+    list-style: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer
+}
+
+ul.subTabs .active {
+    color: #e94335;
+    text-decoration: underline
+}
+
+.bet-grid {
+    border: 1px solid #e94335;
+    /* display: flex; */
+    flex-direction: column;
+}
+.bet-grid:after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+}
+.bet-grid .title,
+.td-title {
+    background-color: #fff3ee
+}
+
+.td-title {
+    width: 100%;
+    font-size: 14px;
+    color: #333
+}
+
+.row {
+    width: 100%;
+    border-bottom: 1px solid #ffd5d5;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.row:last-child {
+    border: none
+}
+
+.row .title {
+    background-color: #fff3ee
+}
+
+.row .title .cell>div {
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px
+}
+
+.row .cell:last-child>div:last-child {
+    border: none
+}
+
+.cell {
+    position: relative;
+    float: left;
+    /* border-bottom: 1px solid #ffd5d5; */
+}
+
+.cell,
+.cell>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.cell>div {
+    justify-content: center;
+    height: 35px;
+    text-align: center;
+    border-right: 1px solid #ffd5d5
+}
+
+.cell .item-selected {
+    background-color: #ffd5d5
+}
+.cell1 .item-selected {
+    background-color: #ffd5d5
+}
+
+.cell .number {
+    justify-content: center
+}
+
+.cell .number,
+.cell .sheng-xiao {
+    color: #4c4c4c;
+    font-size: 14px;
+    width: 20%;
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+.cell .sheng-xiao {
+    justify-content: flex-start;
+    padding-left: 25px
+}
+
+.cell .odds {
+    font-size: 14px;
+    width: 20%
+}
+
+.cell .odds span {
+    font-size: 14px;
+    color: #f73131
+}
+
+.cell .money {
+    width: 60%;
+    font-size: 14px;
+    position: relative
+}
+
+.cell .money,
+.cell .money>div {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.cell .money>div {
+    width: 100%;
+    height: 100%
+}
+
+.cell .money>div input {
+    background-color: #f0f7fb;
+    font-size: 14px;
+    width: 75%;
+    height: 25px;
+    border: 1px solid #e9f0f4;
+    border-radius: 10px;
+    padding: 0 5px
+}
+
+.cell .money>div input[type=radio] {
+    width: auto;
+    height: auto
+}
+
+.cell .balls {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.cell .balls span+span {
+    margin-left: 3px
+}
+
+.cell .radio {
+    cursor: pointer
+}
+
+.cell .radio i {
+    padding-top: 2px
+}
+
+.cell .radio i:before {
+    font-size: 16px
+}
+
+.cell .radio .icon-radio-check:before {
+    font-size: 18px
+}
+
+.cell .select {
+    cursor: pointer
+}
+
+.cell .select i {
+    padding-top: 2px
+}
+
+.cell .select i:before {
+    font-size: 18px
+}
+
+.cell .select .icon-checkbox-check:before {
+    color: #e94335
+}
+
+.bet-grid+.bet-grid {
+    margin-top: 30px
+}
+
+.main-title {
+    background-color: #fff3ee;
+    width: 100%
+}
+
+.main-title,
+.totle-title>div {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 700
+}
+
+.totle-title>div {
+    border-right: 1px solid #ffd5d5;
+    color: #333
+}
+
+.totle-title>div:last-child {
+    border-right: none
+}
+
+.row .label {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    border-right: 1px solid #ffd5d5;
+    font-size: 14px;
+    background-color: #fff3ee
+}
+
+.lianma-area .jiao-cha-peng,
+.lianma-area .xiao-chuan-wei-shu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.lianma-area .jiao-cha-peng .select-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.lianma-area .jiao-cha-peng .select-area .item {
+    width: 480px;
+    border: 2px solid #ffd5d5;
+    padding: 5px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative
+}
+
+.lianma-area .jiao-cha-peng .select-area .item+.item {
+    margin-top: 10px
+}
+
+.lianma-area .jiao-cha-peng .select-area .item span {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer!important
+}
+
+.lianma-area .jiao-cha-peng .select-area .item .del {
+    border: none;
+    background-color: #ffd5d5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 2px 0 0 2px
+}
+
+.lianma-area .jiao-cha-peng .select-area .add {
+    border: none;
+    background-color: #ffc350;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px 20px
+}
+
+.lianma-area .dan-tuo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.lianma-area .dan-sebo,
+.lianma-area .dan-shengxiao {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline
+}
+
+.balls-grid {
+    border: 1px solid #e94335;
+    overflow: hidden;
+}
+
+.balls-grid .title {
+    background-color: #fff3ee
+}
+
+.zheng-fu-num .show-area {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #e94335;
+    border-top: none;
+    margin-top: -20px;
+    margin-bottom: 20px
+}
+
+.zheng-fu-num .show-area .selected-shown {
+    flex: 1;
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.zheng-fu-num .show-area .selected-shown+.selected-shown {
+    border-left: 1px solid #e94335
+}
+
+.zheng-fu-num .show-area .selected-shown .label {
+    font-size: 14px;
+    color: #333;
+    padding: 0 20px;
+    text-align: center
+}
+
+.selected-num+.selected-num {
+    margin-left: 5px
+}
+
+.mini-grid {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    border: 1px solid #e94335
+}
+
+.mini-grid .main-title {
+    background-color: #fff3ee;
+    color: #333
+}
+
+.mini-grid .cell .label {
+    width: 30%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.mini-grid .cell .label i {
+    padding-top: 2px;
+    padding-right: 5px
+}
+
+.mini-grid .cell .label i:before {
+    font-size: 14px
+}
+
+.mini-grid .cell .label .icon-checkbox-check:before {
+    color: #e94335
+}
+
+.mini-grid .cell .label span {
+    font-size: 14px
+}
+
+.mini-grid .cell .nums {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.mini-grid .cell .nums>div {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.mini-grid .cell .nums>div>span {
+    position: relative!important
+}
+
+.quick-ball-grid {
+    width: 48%;
+    border: 1px solid #e94335
+}
+
+.ball-grid {
+    width: 62.5%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top
+}
+
+.ball-grid .row {
+    width: 100%
+}
+
+.ball-grid .row .cell {
+    width: 20%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ffd5d5
+}
+
+.ball-grid .row .cell:last-child {
+    border-right: none
+}
+
+.wei-shu {
+    width: 12.5%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fff3ee;
+    border-right: 1px solid #ffd5d5
+}
+
+.wei-shu>.row div {
+    height: 36px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center
+}
+
+.wei-shu>.row div:last-child {
+    border-bottom: none
+}
+
+.xiao-bo {
+    width: 25%;
+    background-color: #fff3ee;
+    position: relative
+}
+
+.xiao-bo,
+.xiao-bo .col {
+    display: inline-block;
+    vertical-align: top
+}
+
+.xiao-bo .col {
+    width: 50%
+}
+
+.xiao-bo .col:first-child {
+    border-right: 1px solid #ffd5d5;
+    border-left: 1px solid #ffd5d5
+}
+
+.xiao-bo .col .row div {
+    height: 36px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.quick-ball-grid .tips {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    bottom: -20px
+}
+
+.simple-ball-grid {
+    border: 1px solid #e94335;
+    width: 48%;
+    display: inline-block;
+    vertical-align: top
+}
+
+.simple-ball-grid .main-title {
+    background-color: #fff3ee;
+    color: #333
+}
+
+.simple-ball-grid .ball-grid {
+    width: 100%
+}
+
+.simple-ball-grid .se-bo {
+    width: 33.33%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px
+}
+
+.simple-ball-grid .se-bo+.se-bo {
+    border-left: 1px solid #ffd5d5
+}
+
+.simple-ball-grid .se-bo i {
+    padding-top: 3px;
+    padding-right: 5px
+}
+
+.simple-ball-grid .se-bo i:before {
+    font-size: 16px
+}
+
+.simple-ball-grid .se-bo .icon-radio-check:before {
+    font-size: 18px
+}
+
+.simple-ball-grid .se-bo span {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700
+}
+
+.lian-grid {
+    width: 100%;
+    border: 1px solid #e94335;
+    overflow: hidden;
+}
+
+.lian-grid .title {
+    background-color: #fff3ee;
+    color: #333
+}
+
+.lian-grid .row.title .cell>div {
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.lian-grid .cell {
+    width: 50%
+}
+
+.lian-grid .label {
+    width: 20%;
+    background-color: #fff3ee;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.lian-grid .label i {
+    padding-top: 2px;
+    padding-right: 5px
+}
+
+.lian-grid .label i:before {
+    font-size: 14px
+}
+
+.lian-grid .label .icon-checkbox-check:before {
+    color: #e94335
+}
+
+.lian-grid .label span {
+    font-size: 14px
+}
+
+.lian-grid .odds {
+    width: 20%;
+    color: #f73131
+}
+
+.lian-grid .numbers {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.lian-grid .numbers .num {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.lian-grid .numbers .num span {
+    position: relative!important
+}
+
+.lian-grid .title .odds {
+    color: #333
+}
+
+.lian-grid .title .numbers {
+    text-align: center;
+    font-size: 14px
+}
+
+.lhc-bet-result {
+    width: 100%;
+    margin-top: 30px;
+    position: relative
+}
+
+.lhc-bet-result .desc {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.lhc-bet-result .desc .dotted {
+    border: 1px dashed #c9c9c9;
+    display: flex;
+    flex: 1
+}
+
+.lhc-bet-result .desc .info-check {
+    padding: 0 20px;
+    text-align: center;
+    font-size: 14px
+}
+
+.lhc-bet-result .desc .info-check span {
+    color: #f73131;
+    padding: 0 5px
+}
+
+.lhc-bet-result .table {
+    border: 1px solid #e94335;
+    display: inline-block;
+    vertical-align: top;
+    width: 650px;
+    height: 180px
+}
+
+.lhc-bet-result .table .theader {
+    height: 35px;
+    background-color: #fff3ee
+}
+
+.lhc-bet-result .table .tbody .row .group {
+    width: 56%;
+    float: right
+}
+
+.lhc-bet-result .table .tbody .row .group .combination {
+    width: 80%
+}
+
+.lhc-bet-result .table .tbody .row .group .operation {
+    width: 20%
+}
+
+.lhc-bet-result .table .operation {
+    width: 12%
+}
+
+.lhc-bet-result .table .tbody .row .operation {
+    color: #fa4242;
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.lhc-bet-result .table .sequence {
+    width: 12%;
+    float: left;
+}
+
+.lhc-bet-result .table .model {
+    width: 22%;
+    float: left;
+}
+
+.lhc-bet-result .table .combination {
+    width: 44%;
+    float: left;
+}
+
+.lhc-bet-result .table .odds {
+    width: 22%;
+    float: left;
+}
+
+.lhc-bet-result .table .tbody {
+    height: 143px;
+    overflow: auto
+}
+
+.lhc-bet-result .table .row {
+    border-bottom: none
+}
+
+.lhc-bet-result .table .tbody .row .odds {
+    color: #f73131
+}
+
+.lhc-bet-result .group {
+    display: inline-block;
+    vertical-align: top;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px
+}
+
+.lhc-bet-result .info {
+    border: 1px solid #e94335;
+    width: 340px;
+    height: 180px;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    padding: 20px
+}
+
+.lhc-bet-result .info .money {
+    padding-top: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.lhc-bet-result .info .money span {
+    font-size: 14px
+}
+
+.lhc-bet-result .info .money>div {
+    position: relative;
+    height: 35px
+}
+
+.lhc-bet-result .info .money>div input {
+    width: 192px;
+    height: 30px;
+    font-size: 14px;
+    background-color: #fff;
+    cursor: text;
+    border-radius: 4px;
+    border: 1px solid #e94335;
+    padding: 0 5px
+}
+
+.lhc-bet-result .info .tips {
+    padding-left: 85px;
+    padding-top: 10px
+}
+
+.lhc-bet-result .info .tips span {
+    color: #333;
+    font-size: 12px
+}
+
+.lhc-bet-result .info button {
+    width: 110px!important;
+    height: 30px!important;
+    font-size: 16px!important
+}
+
+.lhc-bet-result .info button+button {
+    margin-left: 20px!important
+}
+
+.lhc-bet-result .info .cancel {
+    width: 60px!important
+}
+
+.lhc-bet-result .btn-group {
+    padding-top: 20px;
+    text-align: center
+}
+
+.lhc-bet-result .btn-group button {
+    border-radius: 4px;
+    border: none;
+    font-size: 20px;
+    width: 120px;
+    height: 40px;
+    color: #fff
+}
+
+.lhc-bet-result .btn-group button+button {
+    margin-left: 50px
+}
+
+.lhc-bet-result .btn-group .confirm {
+    background-color: #e94335
+}
+
+.lhc-bet-result .btn-group .cancel {
+    background-color: #ccc
+}
+
+.combination,
+.model,
+.odds,
+.operation,
+.sequence {
+    display: inline-block;
+    vertical-align: top;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px
+}
+
+.dui-peng .mini-grid,
+.he-xiao .mini-grid {
+    width: 100%
+}
+
+.quick-fill {
+    width: 90px;
+    position: absolute;
+    background-color: #fff3ee;
+    left: 5%;
+    top: 35px;
+    z-index: 100;
+    box-shadow: 2px 2px 2px #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #e94335;
+    cursor: pointer
+}
+
+.quick-fill:before {
+    border-color: transparent transparent #e94335;
+    top: -20px
+}
+
+.quick-fill:after,
+.quick-fill:before {
+    display: block;
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px
+}
+
+.quick-fill:after {
+    border-color: transparent transparent #fff;
+    top: -17px
+}
+
+.quick-fill div+div {
+    border-top: 1px solid #e94335
+}
+
+.quick-fill div {
+    height: 28px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px
+}
+
+.quick-fill div:hover {
+    color: #e94335
+}
+
+.quick-setting-wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 600;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.quick-setting-wrap .quick-setting-win {
+    background: #fff;
+    width: 300px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -50px
+}
+
+.quick-setting-wrap .quick-setting-win>div {
+    width: 100%
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-title {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #e94335;
+    box-sizing: border-box;
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-title span {
+    font-size: 14px;
+    color: #fff
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-title i {
+    color: #fff;
+    cursor: pointer
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-content {
+    padding-top: 30px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-content input {
+    width: 240px;
+    height: 50px;
+    background-color: #fffdfa;
+    border: 1px solid #e94335;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-content input+input {
+    margin-top: 16px
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-content .status {
+    margin-top: 10px;
+    cursor: pointer
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-content .status span {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #333
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 86px
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-bottom button {
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 4px
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-bottom .cancel {
+    border: 1px solid #979797;
+    color: #333;
+    background-color: #fff
+}
+
+.quick-setting-wrap .quick-setting-win .quick-setting-bottom .confirm {
+    margin-left: 23px;
+    border: none;
+    background-color: #e94335;
+    color: #fff
+}
+
+.quick-bet-area {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#ffa1a0, #fff3f2);
+    margin-top: 10px
+}
+
+.quick-bet-area .quick-money {
+    height: 66px
+}
+
+.quick-bet-area .quick-money,
+.quick-bet-area .quick-money>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.quick-bet-area .quick-money>div {
+    width: 222px;
+    height: 38px;
+    background-color: #ff6460;
+    border: none;
+    border-radius: 4px
+}
+
+.quick-bet-area .quick-money>div label {
+    font-size: 14px;
+    color: #fff
+}
+
+.quick-bet-area .quick-money>div input {
+    width: 120px;
+    height: 26px;
+    border: 1px solid #e94335;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 0 10px;
+    font-size: 14px
+}
+
+.quick-bet-area .quick-bet-select {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start
+}
+
+.quick-bet-area .quick-bet-select div {
+    width: 64px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ff9e9b;
+    border-radius: 4px;
+    color: #e82e29;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 7px;
+    margin-bottom: 9px
+}
+
+.quick-bet-area .quick-bet-select div:hover {
+    border-color: #ff9e9b
+}
+
+.quick-bet-area .quick-bet-select .case-selected {
+    border: 1px solid #ff6c00;
+    background-color: #e94335;
+    color: #fff
+}
+
+.red1 {
+    background-color: rgb(244, 89, 89) !important;
+}
+
+.green1 {
+    background-color: rgb(106, 204, 123) !important;
+}
+
+.blue1 {
+    background-color: rgb(81, 171, 240) !important;
+}
