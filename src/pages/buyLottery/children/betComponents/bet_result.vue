@@ -235,6 +235,11 @@ export default {
             this.$refs.confirm.disabled = false
           }
         })
+      } else if(this.sumCount > 2000){
+        this.$alert('最大投注数为2000注', '温馨提示', {
+          confirmButtonText: '确定',
+          center: true,
+        })
       } else {
         for (let i in this.sumList) {
           if (this.sumList[i].price === 0) {

@@ -200,7 +200,8 @@ export default {
 }
 
 .header .main .login_and_userinfo {
-  width: 685px;
+  /*width: 685px;*/
+  width: 77%;
   overflow: hidden;
   margin-top: 26px;
 }
@@ -225,7 +226,7 @@ export default {
 /* 登录上之后的样式 */
 
 .header .main .login_and_userinfo .logined {
-  width: 685px;
+  width: 100%;
   height: 53px;
   overflow: hidden;
   font-size: 14px;
@@ -379,7 +380,6 @@ input.d-btn:hover,
 }
 
 .spanVerfy {
-  position: absolute;
   position: absolute;
   top: 1px;
   left: 1px;

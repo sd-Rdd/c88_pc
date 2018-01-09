@@ -89,7 +89,7 @@ export default {
       let reg =  /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_-]{6,16}$/g;
       if (!reg.test(this.form[b])) {
         this.$message({
-          message: a+"只能输入6-16位字母数字组合",
+          message: a+"必须是6-12位字母数字或下划线组合",
           type: "warning"
         });
         this.form[b] = null;
