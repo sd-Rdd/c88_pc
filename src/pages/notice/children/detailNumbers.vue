@@ -81,11 +81,11 @@
           <a @click='openWin("/buyLottery")'>购彩大厅</a>
         </div>
         <div class="tz">
-          <img src="https://cpweb.kosunmobile.com/c9.kosungames.com/uploads/images/20161223/585cf6eda016f.png" width="32px" height="32px">
+          <img :src="lotteryLogo" width="32px" height="32px">
           <a @click='openWin("/buyLottery/bet"+lotteryNumber)'>投注{{lotteryName}}</a>
         </div>
         <div class="sc">
-          <a  @click="addCollection">收藏此页面，开奖即时查看</a>
+          <a @click="addCollection">收藏此页面，开奖即时查看</a>
         </div>
       </div>
     </div>
@@ -98,6 +98,7 @@ import tools from "tools/tools.js";
 export default {
   data() {
     return {
+      lotteryLogo: this.$route.params.lotteryLogo,
       date: Date(),
       yearMonthDay: null,
       pickerOptions1: {
@@ -140,7 +141,11 @@ export default {
     //console.log(this.bbeforeDay)
   },
   methods: {
-     //加入收藏功能
+    //根据彩种筛选
+    selectLottery() {
+
+    },
+    //加入收藏功能
     addCollection(){
       alert("加入收藏失败，请使用Ctrl+D进行添加")
     },
@@ -162,6 +167,7 @@ export default {
         .then(res => {
           if (res.data.status == 200) {
             console.log(res.data);
+            this.lotteryLogo = res.data.lotteryLogo;
             this.lotteryName = res.data.lotteryName;
             this.resultList = res.data.resultList;
             this.lotteryResult = this.resultList[0].lotteryResult;
