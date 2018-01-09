@@ -172,7 +172,6 @@
             <div style="flex:1">提款金额</div>
             <div style="flex:0.8">手续费</div>
             <div style="flex:0.8">出款金额</div>
-            <div style="flex:1">账户余额</div>
             <div style="flex:1.4">提款日期</div>
             <div style="flex:0.6">提款状态</div>
           </div>
@@ -183,7 +182,6 @@
             <div style="flex:1">{{item.amount|filtersumWithdraws}}</div>
             <div style="flex:0.8">{{item.discountAmount|filtersumWithdraws}}</div>
             <div style="flex:0.8">{{item.status|filterStatus2(item.amount)}}</div>
-            <div style="flex:1">{{item.balance}}</div>
             <div style="flex:1.4">{{item.createTime|filterCreateTime}}</div>
             <div style="flex:0.6">
               <span v-if="item.status==1">待处理</span>
