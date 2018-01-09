@@ -122,8 +122,8 @@
               <div class="form_group">
                 <label for="" class="three">用户名:</label>
                 <input type="text" placeholder="请输入用户名" v-model="memberName" @blur="check_user">
-                <p class="text_info">格式：大小写字母开头,
-                  <span class="red">6-16</span>个字符</p>
+                <p class="text_info">格式：
+                  <span class="red">6-16</span>&nbsp;字母+数字或者下划线组合</p>
               </div>
               <div class="form_group" v-for="(item,index) in memberRebates" :key="index">
                 <label for="" class="three">{{item.catName}}:</label>
@@ -518,7 +518,7 @@ export default {
           break;
         case '投注量':
           this.getReportData2("/report/betDays");
-          break;  
+          break;
         case '派奖':
           this.getReportData2("/report/payoutDays");
           break;
@@ -530,7 +530,7 @@ export default {
           break;
         case '新增用户数':
           this.getReportData2("/report/newMemberDays");
-          break;        
+          break;
       }
     },
     getReportData2(a){
@@ -805,7 +805,7 @@ export default {
     // 检查输入的必须是两位小数
     checkdigit(index){
       let currentDate = Number(this.memberRebates[index].rebate);
-      // console.log(currentDate) 
+      // console.log(currentDate)
        this.memberRebates[index].rebate=this.memberRebates[index].rebate.replace(/\.\d{2,}$/,this.memberRebates[index].rebate.substr(this.memberRebates[index].rebate.indexOf('.'),3))
     },
     // 检查可用次数必须为数字
@@ -814,7 +814,7 @@ export default {
     },
     check_user() {
       //console.log(this.memberName);
-      let reg = /^[a-zA-Z]\w{5,15}/;
+      let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_-]{6,16}$/g
       if(this.memberName){
         if (!reg.test(this.memberName)) {
         this.$message({

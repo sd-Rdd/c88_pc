@@ -7,7 +7,7 @@
                 <bet-tips></bet-tips>
                 <div class="bet-main">
                     <betSelect-number></betSelect-number>
-                    <bet-tools></bet-tools>
+                    <bet-tools ></bet-tools>
                 </div>
                 <div class="bet-result">
                     <bet-result></bet-result>
@@ -35,6 +35,7 @@ export default {
       xuan5: AllPlay[11],
       defaultCodeNo: null, // 三级玩法编号
       stairCodeNo: null, // 一级玩法编号
+
       cha:null
     };
   },

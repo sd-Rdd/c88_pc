@@ -85,7 +85,7 @@
                       <div class="form_remark">
                         密码规则：密码长度至少
                         <span class="red">6</span>
-                        位数
+                        位字母+数字
                       </div>
                       <button type="button" class="btn btn-radius btn-default" @click='changeLoginPsw'>确 认</button>
                     </form>
@@ -424,15 +424,15 @@ export default {
           this.logPSW.newPassword2 = null;
         } else if (this.logPSW[a].length < 6) {
           this.$message({
-            message: "密码长度至少 6 位数",
+            message: "密码长度至少 6 位字母+数字",
             type: "warning"
           });
           this.logPSW[a] = null;
         }
       } else if (this.logPSW[a]) {
-        if (this.logPSW[a].length < 6) {
+        if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/g.test(this.logPSW[a]))) {
           this.$message({
-            message: "密码长度至少 6 位数",
+            message: "密码必须为 6-16 位字母+数字",
             type: "warning"
           });
           this.logPSW[a] = null;

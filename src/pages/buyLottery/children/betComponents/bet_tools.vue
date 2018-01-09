@@ -36,6 +36,7 @@
 </template>
 <script>
 import tools from 'tools/tools.js'
+import bet_selectPlay from '../../../../store/modules/bet_selectPlay';
 export default {
   data() {
     return {
@@ -43,7 +44,8 @@ export default {
       unitNum: 1, //单位元，角，分
       rate1: 0, //input绑定的model值
       rate: 0.0, //页面上显示的返利数值
-      odds: [] //页面上显示的赔率数据
+      odds: [], //页面上显示的赔率数据
+      lotteryList: []
     }
   },
   mounted() {
@@ -55,9 +57,13 @@ export default {
     })
   },
   created() {
+//    console.log(this.$route)
+//    console.log(this.$store.state.lotteryCode)
+//    console.log(JSON.parse(localStorage.getItem('user')).id)
     if (this.$route.query.price) {
       this.price = this.$route.query.price
     }
+
   },
   computed: {
     betsCount() {
@@ -173,7 +179,7 @@ export default {
       return oddsArr
     },
     addZhuDan() {
-      if (this.betsCount == 0) {
+      if (this.betsCount === 0) {
         this.$alert('您还没有选择号码或者选择号码不全', '温馨提示', {
           confirmButtonText: '确定'
         })
@@ -181,7 +187,54 @@ export default {
         this.$alert('最大投注数为2000注', '温馨提示', {
           confirmButtonText: '确定'
         })
+//      } else if(true){
+//        this.$http
+//          .post('/api/code/listCode', {
+//            lotteryNo: this.$store.state.lotteryCode,
+//            memberId: JSON.parse(localStorage.getItem('user')).id
+//          })
+//          .then(res => {
+//            if(res.data.status == '200' ){
+//              console.log(res)
+//              this.lotteryList = res.data.result.lotteryCodeList;
+//              console.log(this.lotteryList)
+//              console.log(this.allPrice)
+//              console.log(this.lotteryList[0].noteMinMoney)
+//              if(this.allPrice < 0.05){
+//                this.$alert('投注金额不能小于0', '温馨提示', {
+//                  confirmButtonText: '确定'
+//                })
+//              } else if(this.allPrice > 100){
+//                this.$alert('投注金额不能大于', '温馨提示', {
+//                  confirmButtonText: '确定'
+//                })
+//              }
+//            }
+//          })
       } else {
+        //1、获取当前玩法的玩法编号state.playCode
+        //2、获取当前彩种的所有玩法的设置参数state.lotteryCodeList
+        //3、从所有参数中筛选出当前玩法的设置参数
+        //4、判断单注最大金额、最小金额
+        let lottery= bet_selectPlay.state.playCode
+        console.log(lottery)
+        this.lotteryList= this.$store.state.lotteryCodeList
+        console.log(this.lotteryList[0].noteMaxMoney)
+        let single = this.lotteryList.filter(item => {
+          return Number(item.codeNo) === lottery
+        })[0]
+        console.log(single.noteMaxMoney)
+        if(this.allPrice > single.noteMaxMoney){
+          this.$alert('投注金额不能大于' + single.noteMaxMoney , '温馨提示', {
+            confirmButtonText: '确定'
+          })
+        } else if(this.allPrice < single.noteMinMoney) {
+          this.$alert('投注金额不能小于' + single.noteMinMoney , '温馨提示', {
+            confirmButtonText: '确定'
+          })
+        }
+
+
         let odds = []
         if (
           (this.lotteryCode == 31 ||
@@ -212,7 +265,6 @@ export default {
         this.rate1 = 0
         tools.clearStyle(this.$store.state.selectNumPan)
         this.$store.commit('clearIndex')
-        //console.log(1);
       }
     }
   },
