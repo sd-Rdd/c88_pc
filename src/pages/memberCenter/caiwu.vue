@@ -32,7 +32,7 @@
                 <em class="red">＊</em>提现金额:</label>
               <div class="form">
                 <div class="form_group">
-                  <input type="text" placeholder="请输入提现金额" @blur="checkTixianVal" autocomplete="off" value="" v-model="InputDesirableAmount">
+                  <input type="text" placeholder="请输入提现金额" @blur="checkTixianVal" value="" autocomplete="off" v-model="InputDesirableAmount">
                   <!-- onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]|^0{1,}\d{1,}|[\,,\.]{1,}/g,'')" -->
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default {
       rechargeList: [], //充值记录列表数据
       withdrawData: {}, //从接口请求回来的提现数据
       poundage: null, //提款手续费
-      InputDesirableAmount: null, //输入框输入的提现金额
+      InputDesirableAmount: 0, //输入框输入的提现金额
       moneyPSW: null, //资金密码
       bankCard: {}, //接口请求回来的用于提现的银行卡数据
       gatheringRecordData: [], //提现记录数据
@@ -351,8 +351,8 @@ export default {
     },
     //失去焦点时验证输入的值并且计算是否有手续费
     checkTixianVal() {
-      if(!this.InputDesirableAmount){
-        return
+      if(this.InputDesirableAmount == '' || this.InputDesirableAmount == null){
+        return false
       }
       //验证输入格式
       let reg = /^((?:-?0)|(?:-?[1-9]\d*))(?:\.\d{1,2})?$/g;
