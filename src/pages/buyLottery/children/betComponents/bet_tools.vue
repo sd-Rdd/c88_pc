@@ -18,7 +18,7 @@
           <div class="bonus" v-if="odds.length<4">{{odds[0] | retainDigit(3)}}</div>
           <div class="bonus" v-else></div>
           <div class="rebate">
-            {{rate}}%
+            {{rate| retainDigit(2)}}%
           </div>
         </div>
         <div class="control">
