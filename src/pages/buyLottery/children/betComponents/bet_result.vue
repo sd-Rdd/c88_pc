@@ -87,6 +87,7 @@
 </template>
 <script >
 import ccaa from 'tools/tools.js'
+import bet_selectPlay from '../../../../store/modules/bet_selectPlay';
 export default {
   name: 'result',
   data() {
@@ -238,9 +239,30 @@ export default {
       } else if(this.sumCount > 2000){
         this.$alert('最大投注数为2000注', '温馨提示', {
           confirmButtonText: '确定',
-          center: true,
+          callback: () => {
+            this.$refs.confirm.disabled = false
+          }
         })
+        console.log(this.sumMoney)
       } else {
+        let lottery= bet_selectPlay.state.playCode
+        console.log(lottery)
+        this.lotteryList= this.$store.state.lotteryCodeList
+        console.log(this.lotteryList[0].noteMaxMoney)
+        let single = this.lotteryList.filter(item => {
+          return Number(item.codeNo) === lottery
+        })[0]
+        if(this.sumMoney > single.itemMaxMoney){
+          this.$alert('总金额不能大于' + single.itemMaxMoney , '温馨提示', {
+            confirmButtonText: '确定',
+            callback: () => {
+              this.$refs.confirm.disabled = false
+            }
+          })
+          return
+        }
+
+
         for (let i in this.sumList) {
           if (this.sumList[i].price === 0) {
             this.$alert('单注金额需大于0', '温馨提示', {
