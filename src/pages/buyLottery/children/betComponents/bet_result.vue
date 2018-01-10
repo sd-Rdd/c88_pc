@@ -167,7 +167,6 @@ export default {
   watch: {
     sumList: {
       handler(val) {
-        //console.log("监控到了");
         this.$store.commit('updateSumList', val)
       },
       deep: true
@@ -255,7 +254,6 @@ export default {
         let memberId
         memberId = ccaa.store.getData('user').id
         //第一步：重组sumlist数组
-        //console.log(this.sumList);
         let sumList = []
         this.sumList.forEach((item, index) => {
           let obj = {}
@@ -1340,10 +1338,10 @@ export default {
                 return '龙'
                 break
               case 247:
-                return '虎'
+                return '和'
                 break
               case 248:
-                return '和'
+                return '虎'
                 break
               case 201:
                 return '大'
