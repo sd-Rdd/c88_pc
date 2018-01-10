@@ -126,9 +126,7 @@
           <div slot="head" class="thead">
             <div style="flex:1">编号</div>
             <div style="flex:2">账单类别</div>
-            <div style="flex:2">之前金额</div>
             <div style="flex:2">操作金额</div>
-            <div style="flex:2">剩余金额</div>
             <div style="flex:5">操作时间</div>
           </div>
           <div slot="body" class="tbody" v-if="result2.length==0">
@@ -138,9 +136,7 @@
             <div slot="body" class="tbody" v-else v-for="(item,index) in result2" :key="index">
               <div style="flex:1">{{index+1}}</div>
               <div style="flex:2">{{item.accountType|filteraccountType}}</div>
-              <div style="flex:2">{{item.beginMoney}}</div>
               <div style="flex:2">{{item.money}}</div>
-              <div style="flex:2">{{item.afterMoney}}</div>
               <div style="flex:5">{{item.creationTime|filterDate}}</div>
             </div>
           <!-- /* </template> */ -->

@@ -286,15 +286,15 @@
           </el-table-column>
           <el-table-column  prop="name" label="用户名" width="150" align="center" :show-overflow-tooltip="true">
           </el-table-column>
-          <el-table-column  prop="accountType" :formatter="filterAccountType" label="账单类别" width="100" align="center" :show-overflow-tooltip="true">
+          <el-table-column  prop="accountType" :formatter="filterAccountType" label="账单类别" width="200" align="center" :show-overflow-tooltip="true">
           </el-table-column>
-          <el-table-column  prop="beginMoney" label="之前金额" width="105" align="center" :show-overflow-tooltip="true">
+          <!-- <el-table-column  prop="beginMoney" label="之前金额" width="105" align="center" :show-overflow-tooltip="true">
+          </el-table-column> -->
+          <el-table-column  prop="optionMoney" label="操作金额" width="155" align="center" :show-overflow-tooltip="true">
           </el-table-column>
-          <el-table-column  prop="optionMoney" label="操作金额" width="105" align="center" :show-overflow-tooltip="true">
-          </el-table-column>
-          <el-table-column  prop="afterMoney" label="剩余金额" width="107" align="center" :show-overflow-tooltip="true">
-          </el-table-column>
-          <el-table-column  prop="optionTime" label="操作时间" width="190" align="center" :show-overflow-tooltip="true">
+          <!-- <el-table-column  prop="afterMoney" label="剩余金额" width="107" align="center" :show-overflow-tooltip="true">
+          </el-table-column> -->
+          <el-table-column  prop="optionTime" label="操作时间" width="252" align="center" :show-overflow-tooltip="true">
           </el-table-column>
         </el-table>
         <el-pagination @current-change="changePage3"  layout="prev, pager, next"  v-if="AccountChangeList.length" :page-count="pages"></el-pagination>
@@ -427,9 +427,9 @@ export default {
         { value: "1", label: "投注" },
         { value: "2", label: "返点" },
         { value: "3", label: "派彩" },
-        { value: "4", label: "代理反水" },
+        { value: "4", label: "投注返水" },
         { value: "5", label: "取消订单" },
-        { value: "6", label: "销售返点" },
+        { value: "6", label: "代理返水" },
         { value: "7", label: "线上充值" },
         { value: "8", label: "线下充值" },
         { value: "9", label: "人工入款" },
@@ -670,6 +670,10 @@ export default {
     },
     //游戏记录状态转变
     filterStatus:function(c,b,a) {
+      console.log(c.isRepeal);
+      if(c.isRepeal === 1) {
+        return "已撤单"
+      }
       switch (a) {
         case -1:
           return "等待开奖";
@@ -720,13 +724,13 @@ export default {
           return "派彩";
           break;
         case 4:
-          return "代理反水";
+          return "投注返水";
           break;
         case 5:
           return "取消订单";
           break;
         case 6:
-          return "销售返点";
+          return "代理返水";
           break;
         case 7:
           return "线上充值";
