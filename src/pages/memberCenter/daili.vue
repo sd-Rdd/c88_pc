@@ -350,7 +350,6 @@ export default {
       safe: 1, //控制哪个大菜单显示
       dateStart1: null, //开始时间
       dateEnd1: new Date(), //结束时间
-      oneDay: 86400000, // 一天的毫秒数
       //公共数据结束
       //团队总览部分数据开始
       sumCount:null,
@@ -601,7 +600,7 @@ export default {
     //团队管理数据获取
     fetchTeamManageData(a) {
       this.loading = true;
-      let endTime = this.dateEnd1.getTime()+this.oneDay;
+      let endTime = this.dateEnd1.getTime();
       let obj = {};
       obj.id = ccaa.store.getData("user").id;
       obj.name = this.memberNameTeam;
@@ -649,7 +648,7 @@ export default {
         this.$message("请输入用户名");
       } else {
         this.loading = true;
-        let endTime = this.dateEnd1.getTime()+this.oneDay;
+        let endTime = this.dateEnd1.getTime();
         let obj = {};
         obj.id = ccaa.store.getData("user").id;
         obj.name = this.memberNamePlay;
@@ -692,7 +691,7 @@ export default {
         this.$message("请输入用户名");
       } else {
         this.loading = true;
-        let endTime = this.dateEnd1.getTime()+this.oneDay;
+        let endTime = this.dateEnd1.getTime();
         let obj = {};
         obj.id = ccaa.store.getData("user").id;
         obj.name = this.memberNameAccount;
@@ -761,7 +760,7 @@ export default {
     //获取团队报表数据
     fetchTeamFormData(a) {
       this.loading = true;
-      let endTime = this.dateEnd1.getTime()+this.oneDay;
+      let endTime = this.dateEnd1.getTime();
       let obj = {};
         obj.id = ccaa.store.getData("user").id;
         obj.name = this.teamName;

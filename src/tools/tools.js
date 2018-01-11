@@ -124,10 +124,10 @@ function countJisuan(arr) {
               arr1.push(parseInt(246));
               break;
             case "虎":
-              arr1.push(parseInt(247));
+              arr1.push(parseInt(248));
               break;
             case "和":
-              arr1.push(parseInt(248));
+              arr1.push(parseInt(247));
               break;
             case "大":
               arr1.push(parseInt(201));

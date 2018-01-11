@@ -8,7 +8,7 @@
                         <div class="lottery-name">{{val.lotteryName}}</div>
                         <div class="issue-cd">
                             <div>第{{val.newIssue}}期</div>
-                            <counter :endtime="val.runLotteryTime" :startTime="sysDate"></counter>
+                            <counter :endtime="val.runLotteryTime" :startTime="sysDate" @onTimeOut="onTimeOut(val.id)"></counter>
                         </div>
                     </div>
                 </div>
@@ -55,11 +55,9 @@ export default {
   methods: {
     gotoNewPage(id) {
       window.open(url + '/rules?lotteryNumber='+id, '')
-    }
-  },
-  created() {
-    this.$http
-      .post('/api/lottery/listLottery', {})
+    },
+    getList(){
+      this.$http.post('/api/lottery/listLottery', {})
       .then(res => {
         console.log(res.data)
         if (res.data.status == 200) {
@@ -69,6 +67,13 @@ export default {
         }
       })
       .catch(err => console.log(err))
+    },
+    onTimeOut(id){
+      this.getList()
+    }
+  },
+  created() {
+    this.getList()
   }
 }
 </script>

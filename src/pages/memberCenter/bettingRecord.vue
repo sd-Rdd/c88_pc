@@ -292,7 +292,6 @@ export default {
       obj.acountType = this.selectZB;
       obj.startTime = this.dateStart1.getTime();
       obj.endTime = this.dateEnd1.getTime();
-      console.log(obj)
       this.$http
         .post("/account/change/record", obj)
         .then(res => {
@@ -326,7 +325,6 @@ export default {
       obj.endTime = this.dateEnd1.getTime();
       if (this.selectEnd1) {
         let arr = this.selectEnd1.split(",");
-        // console.log(arr);
         obj.isWin = arr[0];
         obj.isRepeal = arr[1];
       }

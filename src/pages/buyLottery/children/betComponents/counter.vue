@@ -21,6 +21,24 @@ export default {
         p(n) {
             return n < 10 ? '0' + n : n;
         },
+        refreshTime(){
+            if(this.endtime&&this.startTime&&((this.endtime-this.startTime)>1000)){
+                this.cha=this.endtime-this.startTime;
+            }else{
+                this.cha=0;
+            }
+            if (this.fre) {
+                clearInterval(this.fre)
+            }
+            this.fre=setInterval( ()=>{
+                if(this.cha<1000){
+                    clearInterval(this.cha)
+                    this.$emit('onTimeOut')
+                }else{
+                    this.cha=this.cha-1000;
+                }
+            }, 1000);
+        }
     },
     computed: {
         time() {
@@ -28,19 +46,13 @@ export default {
             
         },
     },
-    mounted() {
-        if(this.endtime&&this.startTime&&((this.endtime-this.startTime)>1000)){
-            this.cha=this.endtime-this.startTime;
-        }else{
-            this.cha=0;
+    watch: {
+        startTime (val) {
+            this.refreshTime()
         }
-        this.fre=setInterval( ()=>{
-            if(this.cha<1000){
-                clearInterval(this.cha)
-            }else{
-                this.cha=this.cha-1000;
-            }
-        }, 1000);
+    },
+    mounted() {
+        this.refreshTime()
     },
 
 }
