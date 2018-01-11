@@ -189,18 +189,18 @@ export default {
         })
       } else {
         let lottery= bet_selectPlay.state.playCode
-        console.log(lottery)
+//        console.log(lottery)
         this.lotteryList= this.$store.state.lotteryCodeList
-        console.log(this.lotteryList[0].noteMaxMoney)
+//        console.log(this.lotteryList[0].noteMaxMoney)
         let single = this.lotteryList.filter(item => {
           return Number(item.codeNo) === lottery
         })[0]
-        if(this.price > single.noteMaxMoney){
+        if(this.price * this.unitNum > single.noteMaxMoney){
           this.$alert('单注金额不能大于' + single.noteMaxMoney , '温馨提示', {
             confirmButtonText: '确定'
           })
           return
-        } else if(this.price < single.noteMinMoney) {
+        } else if(this.price * this.unitNum < single.noteMinMoney) {
           this.$alert('单注金额不能小于' + single.noteMinMoney , '温馨提示', {
             confirmButtonText: '确定'
           })
