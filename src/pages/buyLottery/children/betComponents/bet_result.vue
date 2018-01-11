@@ -24,7 +24,7 @@
                 </div>
                 <div class="betnum">{{val.count}}</div>
                 <div class="amount">
-                  <input type="text" v-model="val.price1" maxlength="5">
+                  <input type="text" v-model="val.price1" maxlength="5" @blur="onlyPrice(val.price1,index)">
                   <!-- :value="val.price1" -->
                 </div>
                 <div class="tb-unit">
@@ -98,7 +98,6 @@ export default {
       sumCount: 0
     }
   },
-
   computed: {
     sumList() {
       let arr = this.$store.state.bet_tools.sumList
@@ -215,6 +214,34 @@ export default {
         this.$store.commit('clearIndex')
       })
     },
+    //单注投注金额 最大最小值
+    onlyPrice(value,index) {
+      let lottery= bet_selectPlay.state.playCode
+      console.log(lottery)
+      this.lotteryList= this.$store.state.lotteryCodeList
+      console.log(this.lotteryList[0].noteMaxMoney)
+      let single = this.lotteryList.filter(item => {
+        return Number(item.codeNo) === lottery
+      })[0]
+      if(this.sumList[index].price1 > single.noteMaxMoney){
+        console.log(this.sumList[index].price1)
+        this.sumList[index].price1 = single.noteMaxMoney
+        this.$alert('单注金额不能大于' + single.noteMaxMoney , '温馨提示', {
+          confirmButtonText: '确定'
+        })
+      } else if(this.sumList[index].price1 < single.noteMinMoney) {
+        this.sumList[index].price1 = single.noteMinMoney
+        this.$alert('单注金额不能小于' + single.noteMinMoney , '温馨提示', {
+          confirmButtonText: '确定'
+        })
+      } else if(this.sumList[index].price < single.noteMinMoney) {
+        this.sumList[index].price1 = single.noteMinMoney * 100
+        this.$alert('单注金额不能小于' + single.noteMinMoney , '温馨提示', {
+          confirmButtonText: '确定'
+        })
+      }
+
+    },
     //点击确认投注时执行的操作
     confirm() {
       this.$refs.confirm.disabled = true
@@ -293,6 +320,7 @@ export default {
           ].innerHTML),
             sumList.push(obj)
         })
+        console.log(this.sumList)
         //第二部重组periodsList数组
         let periodsList = []
         /* 判断追号页面开关值 */

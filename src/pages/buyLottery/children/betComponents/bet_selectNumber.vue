@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- 显示单位 -->
+         <!--显示单位-->
         <div class="checkbox animated bounceInRight" v-if="playCode==1713||playCode==1813||playCode==1814">
             <div class="checkbox-row" v-for="(item,index) in unit" :key="index">
                 <div class="unit">{{item.unit}}</div>
