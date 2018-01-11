@@ -65,9 +65,8 @@ export default {
       this.$http
         .post("/api/personal/code/confine", { catId: id,memberId: this.memberData.id})
         .then(res => {
-          console.log(res.data);
           if (res.data.status == 200) {
-            if (id === 7) {
+            if (id === '7') {
               this.tableData = this.transforTableData(res.data.result);
             } else {
               this.tableData = res.data.result;
