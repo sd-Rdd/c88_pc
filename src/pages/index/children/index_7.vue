@@ -8,19 +8,18 @@
       <em>用户名</em>
       <em>奖金</em>
     </div>
-    <div class="list">
+    <marquee  direction=up class="list" style="border-bottom: 1px solid #ddd">
       <ul v-if="result.length!=0">
         <li v-for="(item,index) in result" :key="index">
           <span class="number">{{index+1}}</span>
           <span class="username">
             {{item.memberName|filterMemberName}} </span>
-          <em class="red">
+          <em class="red" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
             {{item.winMoney|filterWinMoney}}元
           </em>
         </li>
       </ul>
-
-    </div>
+    </marquee>
 
   </div>
 </template>
