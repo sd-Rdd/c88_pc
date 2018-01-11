@@ -32,7 +32,8 @@
 
             <li class="line_exa">
                 <i class="iconfont icon-jiancha"></i>
-                <a href="tencent://message/?uin=1963999999&Site=web&Menu=yes" class="ftszie">QQ客服</a>
+                <a :href="service" class="ftszie">QQ客服</a>
+                <!--<a href="#" @click="serviceQQ" class="ftszie">QQ客服</a>-->
             </li>
 
             <a class="qr" href="">
@@ -54,7 +55,8 @@
 export default {
     data(){
         return {
-            isShow:true
+            isShow:true,
+            service: ''
         }
     },
     methods: {
@@ -64,7 +66,19 @@ export default {
         totop() {
             window.scrollTo(0, 0);
         },
+        serviceQQ() {
+            this.$http.post("/sysAllocation/getCustomerQQ",{})
+              .then(res=>{
+                if (res.data.status === '200') {
+                    let str = res.data.result[0].qq
+                    this.service = `tencent://message/?uin=${str}&Site=web&Menu=yes`
+                }
+            })
+        }
     },
+    created() {
+        this.serviceQQ()
+    }
 }
 </script>
 <style scoped>
