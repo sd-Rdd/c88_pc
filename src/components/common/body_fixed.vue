@@ -33,7 +33,7 @@
             <li class="line_exa">
                 <i class="iconfont icon-jiancha"></i>
                 <a :href="service" class="ftszie">QQ客服</a>
-                <!--<a href="#" @click="serviceQQ" class="ftszie">QQ客服</a>-->
+                <!--<a href="#" @click="serviceQQ" class="ftszie"> QQ客服</a>-->
             </li>
 
             <a class="qr" href="">
