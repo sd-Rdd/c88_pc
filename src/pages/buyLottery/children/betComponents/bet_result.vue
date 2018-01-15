@@ -71,7 +71,7 @@
             <span>
               方案注数
               <span>{{sumCount}}</span>注，总金额
-              <span style="color: #27bbd2">{{sumMoney}}</span>元
+              <span>{{sumMoney}}</span>元
             </span>
           </div>
         </div>
@@ -81,7 +81,7 @@
       <button @click="getRandom1">随机一注</button>
       <button @click="getRandom5">随机五注</button>
       <button @click="closeAll">删除全部</button>
-      <button class="bet-confirm" @click="confirm" ref="confirm" style="color: #38be4f">确认投注</button>
+      <button class="bet-confirm" @click="confirm" ref="confirm">确认投注</button>
     </div>
   </div>
 </template>
@@ -104,10 +104,12 @@ export default {
       let sumMoney = 0,
         sumCount = 0
       for (let i = 0; i < arr.length; i++) {
-        sumMoney = sumMoney.add(arr[i].money).toFixed(2)
+        console.log(arr[i].money)
+        sumMoney = sumMoney.add(arr[i].money)
         sumCount = sumCount + arr[i].count
+        console.log(sumMoney)
       }
-      this.sumMoney = sumMoney.toFixed(2)
+      this.sumMoney = sumMoney
       this.sumCount = sumCount
       this.$store.commit('changeSumMoney', this.sumMoney)
       if (!arr.length) {
