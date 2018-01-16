@@ -391,5 +391,3 @@ input.d-btn:hover,
   letter-spacing: 8px;
 }
 </style>
-
-
