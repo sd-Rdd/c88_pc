@@ -66,6 +66,7 @@ export default {
     this.getRandom();
     this.user = ccaa.store.getData("user");
     this.balance = JSON.parse(localStorage.getItem("balance"));
+    this.refreshBalance();
   },
   methods: {
     quit() {
