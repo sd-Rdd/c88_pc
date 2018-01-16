@@ -19,14 +19,14 @@ export default {
     },
     methods:{
         gotoNoticeList(){
-           this.$router.push({path: '/noticeList'}) 
+           this.$router.push({path: '/noticeList'})
         }
     },
     created() {
         this.$http.post("/index/advert/new",{})
         .then(res=>{
             if(res.data.status==200){
-                // console.log(res.data)
+                // console.log (res.data)
                 let arr = res.data.advert.filter(item=>{
                     return item.type === 2
                 })[0]

@@ -32,7 +32,7 @@ function accDiv(arg1, arg2) {
   r2 = Number(arg2.toString().replace(".", ""));
   return (r1 / r2) * Math.pow(10, t2 - t1);
 }
-//给Number类型增加一个div方法，，使用时直接用 .div 即可完成计算。 
+//给Number类型增加一个div方法，，使用时直接用 .div 即可完成计算。
 Number.prototype.div = function (arg) {
   return accDiv(this, arg);
 };
@@ -50,9 +50,9 @@ function accAdd(arg1, arg2) {
     r2 = 0;
   }
   m = Math.pow(10, Math.max(r1, r2));
-  return (arg1 * m + arg2 * m) / m;
+  return (arg1 * m + arg2 * m).toFixed(0) / m;
 }
-//给Number类型增加一个add方法，，使用时直接用 .add 即可完成计算。 
+//给Number类型增加一个add方法，，使用时直接用 .add 即可完成计算。
 Number.prototype.add = function (arg) {
   return accAdd(arg, this);
 };
@@ -251,7 +251,7 @@ function oneAll(arr) {
 //3：当前选号的内容
 //4：当前选号的对象
 function xuanhao2(currentIndex, arr, content, target) {
-  //1.获取当前点击元素在当前行的下标  
+  //1.获取当前点击元素在当前行的下标
   let index;
   for (let i = 0; i < arr[currentIndex].childNodes.length; i++) {
     if (content == arr[currentIndex].childNodes[i].innerHTML) {
@@ -389,7 +389,7 @@ var store = {
 };
 //按照c算法从数组里取若干个数组成二维数组
 /* @arr  arr:初始数组
-   @size  size:个数 
+   @size  size:个数
 */
 function choose(arr, size) {
   var allResult = [];

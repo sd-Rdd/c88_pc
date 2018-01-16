@@ -18,7 +18,7 @@
         </div>
         <div slot="body" class="tbody" v-for="(item,index) in tableData" :key="index">
           <div>{{item.codeName}}</div>
-          <div>{{item.betOdds|transforOdds}}</div>
+          <div>{{item.betOdds}}</div>
         </div>
       </div-table>
     </div>
@@ -66,8 +66,8 @@ export default {
         .post("/api/personal/code/confine", { catId: id,memberId: this.memberData.id})
         .then(res => {
           if (res.data.status == 200) {
-            if (id === '7') {
-              this.tableData = this.transforTableData(res.data.result);
+            if (id === '7' || id === '6' || id === '2') {
+              this.tableData = this.transforTableData(res.data.result, id);
             } else {
               this.tableData = res.data.result;
             }
@@ -78,16 +78,43 @@ export default {
           console.log(res);
         });
     },
-    transforTableData(arr) {
+    transforTableData(arr, dataType) {
       let arr2 = [];
       arr.forEach(res => {
         let codeName = res.codeName;
-        res.oddsList.forEach(res => {
-          let obj = {};
-          obj.codeName = codeName + "-" + res.codeName;
-          obj.betOdds = Number(res.odds);
-          arr2.push(obj);
-        });
+        //六合彩赔率数据解析
+        if(dataType === '7' && res.oddsList){
+          res.oddsList.forEach(res => {
+            let obj = {};
+            obj.codeName = codeName + "-" + res.codeName;
+            obj.betOdds = Number(res.odds);
+            arr2.push(obj);
+          });
+        // PC蛋蛋赔率数据解析
+        }else if(dataType === '6' && res.lotteryCodeOptionList) {
+          res.lotteryCodeOptionList.forEach(res => {
+            let obj = {};
+            obj.codeName = codeName + "/" + res.optionname;
+            obj.betOdds = Number(res.betOdds);
+            arr2.push(obj);
+          });
+        // 快三赔率数据解析
+        }else if(dataType === '2') {
+          if(res.lotteryCodeOptionList) {
+            res.lotteryCodeOptionList.forEach(res => {
+              let obj = {};
+              obj.codeName = codeName + "/" + res.optionname;
+              obj.betOdds = Number(res.betOdds);
+              arr2.push(obj);
+            });
+          }else{
+            let obj = {};
+            obj.codeName = res.codeName;
+            obj.betOdds = Number(res.betOdds);
+            arr2.push(obj);
+          }
+        }
+        
       });
       return arr2;
     },
@@ -95,7 +122,6 @@ export default {
       this.$http
         .post("/api/cat/list",{memberId: this.memberData.id})
         .then(res => {
-          //console.log(res.data);
           if (res.data.status == 200) {
             this.list = res.data.result;
             this.getRebates();
