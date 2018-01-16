@@ -365,15 +365,15 @@
             .then(res => {
               //console.log(res.data)
               if (res.data.status == 200) {
-                this.$http.post("/member/getBlance", { memberId: memberId })
-                  .then(res => {
-                    if (res.data.status == 200) {
-                      console.log(res)
+//                this.$http.post("/member/getBlance", { memberId: memberId })
+//                  .then(res => {
+//                    if (res.data.status == 200) {
+//                      console.log(res)
 //                      let userInfo = JSON.parse(localStorage.getItem('user'))
 //                      userInfo.balance = res.data.balance
 //                      localStorage.setItem('user', JSON.stringify(userInfo))
-                    }
-                  }).catch(res => console.log(res));
+//                    }
+//                  }).catch(res => console.log(res));
                 this.$alert('投注成功', '温馨提示', {
                   confirmButtonText: '确定',
                   center: true,
