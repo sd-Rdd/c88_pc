@@ -384,6 +384,7 @@ var store = {
   },
   // 从本地取数据   问题：使用localStorage[key]取数据就会报错。？？？？？？？？？？？？？？？？
   getData(key) {
+    console.log(key)
     return JSON.parse(localStorage.getItem(key)) || {};
   }
 };
