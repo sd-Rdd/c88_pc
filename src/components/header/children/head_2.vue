@@ -58,14 +58,13 @@ export default {
         passWord: null
       },
       verfyCode: null,
-      verfyCode2: null,
-      balance: null,
+      verfyCode2: null
+      // balance: JSON.parse(localStorage.getItem('balance'))
     };
   },
   created() {
     this.getRandom();
     this.user = ccaa.store.getData("user");
-    this.balance = JSON.parse(localStorage.getItem("balance"));
     this.refreshBalance();
   },
   methods: {
@@ -73,6 +72,15 @@ export default {
       localStorage.clear();
       window.location.reload();
     },
+    // _changeView() {
+    //   window.onstorage = function(e) { // 监视localstorge的值
+    //     if (e.key === 'balance') {
+    //       this.balance = e.newValue
+    //       console.log(this.balance)
+    //     }
+    //   }
+    //   this.$forceUpdate()
+    // },
     login() {
       if (this.verfyCode == this.verfyCode2) {
         if (this.form.memberName && this.form.passWord) {
@@ -165,6 +173,21 @@ export default {
   filters: {
     transforBalance(a) {
       return Number(a).toFixed(3);
+    }
+  },
+  computed: {
+    balance: {
+      get: function() {
+        return JSON.parse(localStorage.getItem('balance'))
+      },
+      set: function(newValue, oldValue) {
+        window.onstorage = function(e) { // 监视localstorge的值
+          if (e.key === 'balance') {
+            return e.newValue
+          }
+        }
+        return newValue
+      }
     }
   }
 };
