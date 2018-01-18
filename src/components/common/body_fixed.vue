@@ -27,7 +27,8 @@
 
             <li class="online_sup">
                 <i class="iconfont icon-service_2"></i>
-                <a href="javascript:;" class="ftszie">在线客服</a>
+                <a href="https://ssg.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=934991&configID=41704&jid=7704799059&s=1
+" class="ftszie">在线客服</a>
             </li>
 
             <li class="line_exa">
@@ -232,5 +233,3 @@ a:hover {
     margin-bottom: 5px;
 }
 </style>
-
-

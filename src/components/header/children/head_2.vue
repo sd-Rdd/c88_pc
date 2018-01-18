@@ -72,15 +72,6 @@ export default {
       localStorage.clear();
       window.location.reload();
     },
-    // _changeView() {
-    //   window.onstorage = function(e) { // 监视localstorge的值
-    //     if (e.key === 'balance') {
-    //       this.balance = e.newValue
-    //       console.log(this.balance)
-    //     }
-    //   }
-    //   this.$forceUpdate()
-    // },
     login() {
       if (this.verfyCode == this.verfyCode2) {
         if (this.form.memberName && this.form.passWord) {
@@ -180,7 +171,7 @@ export default {
       get: function() {
         return JSON.parse(localStorage.getItem('balance'))
       },
-      set: function(newValue, oldValue) {
+      set: function(newValue) {
         window.onstorage = function(e) { // 监视localstorge的值
           if (e.key === 'balance') {
             return e.newValue
