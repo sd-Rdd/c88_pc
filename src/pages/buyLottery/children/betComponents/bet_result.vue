@@ -369,7 +369,7 @@
                   .then(res => {
                     if (res.data.status == 200) {
                       let balanceMoney = res.data.balance
-                      localStorage.setItem('balance', JSON.stringify(balanceMoney))
+                      ccaa.store.setData("balance", balanceMoney)
                     }
                   }).catch(res => console.log(res));
                 this.$alert('投注成功', '温馨提示', {
