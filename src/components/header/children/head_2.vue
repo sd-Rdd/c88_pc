@@ -58,8 +58,8 @@ export default {
         passWord: null
       },
       verfyCode: null,
-      verfyCode2: null
-      // balance: JSON.parse(localStorage.getItem('balance'))
+      verfyCode2: null,
+       balance: JSON.parse(localStorage.getItem('balance'))
     };
   },
   created() {
@@ -165,22 +165,22 @@ export default {
     transforBalance(a) {
       return Number(a).toFixed(3);
     }
-  },
-  computed: {
-    balance: {
-      get: function() {
-        return JSON.parse(localStorage.getItem('balance'))
-      },
-      set: function(newValue) {
-        window.onstorage = function(e) { // 监视localstorge的值
-          if (e.key === 'balance') {
-            return e.newValue
-          }
-        }
-        return newValue
-      }
-    }
   }
+//  computed: {
+//    balance: {
+//      get: function() {
+//        return JSON.parse(localStorage.getItem('balance'))
+//      },
+//      set: function(newValue) {
+//        window.onstorage = function(e) { // 监视localstorge的值
+//          if (e.key === 'balance') {
+//            return e.newValue
+//          }
+//        }
+//        return newValue
+//      }
+//    }
+//  }
 };
 </script>
 <style scoped>

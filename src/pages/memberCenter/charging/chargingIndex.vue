@@ -10,7 +10,8 @@
           <em class="red">＊</em>充值金额:</label>
         <div class="form">
           <div class="form_group">
-            <input type="text" placeholder="请输入充值金额" v-model="amount" id="amount" @blur="checkAmount" autocomplete="off">
+            <input type="text" placeholder="请输入充值金额" v-model="amount" id="amount" @blur="checkAmount"
+                   autocomplete="off">
           </div>
         </div>
         <span class="remark" v-if="stopLimit">单笔充值限额: 最低
@@ -23,7 +24,8 @@
       <h2 style="width:112px;">请选择充值方式：</h2>
       <div class="pay_main" id="pay_main">
         <ul>
-          <li v-for="(item,index) in result" :key="index" @click="selectChargingType(index)" :class="{hover:currentChargingType==index}">
+          <li v-for="(item,index) in result" :key="index" @click="selectChargingType(index)"
+              :class="{hover:currentChargingType==index}">
             <i class="left" :style="{'background-image':'url('+item.icon+')'}"></i>
             <div class="right">
               <a href="javascript:;" class="aline">{{item.name}}</a>
@@ -35,154 +37,182 @@
       </div>
     </div>
     <button class="btn btn-radius btn-default" @click="next">下一步</button>
-    <form :action="currentObj.configs[0].platformVO.url" method="post" ref="form1" v-if="currentObj&&currentObj.configs[0].platformVO"></form>
+    <form :action="currentObj.configs[0].platformVO.url" method="post" ref="form1"
+          v-if="currentObj&&currentObj.configs[0].platformVO"></form>
   </div>
 </template>
 <script>
-import tools from "tools/tools.js";
-export default {
-  data() {
-    return {
-      /* 充值部分数据开始 */
-      result: [], //借口返回来的充值方式数据列表
-      currentChargingType: 0, //当前所选择的充值方式
-      amount: null, //充值金额
-      memberName: tools.store.getData("user").memberName
-      /* 充值部分数据结束 */
-    };
-  },
-  computed: {
-    currentObj() {
-      return this.result[this.currentChargingType];
+  import tools from "tools/tools.js";
+  export default {
+    data() {
+      return {
+        /* 充值部分数据开始 */
+        result: [], //借口返回来的充值方式数据列表
+        currentChargingType: 0, //当前所选择的充值方式
+        amount: null, //充值金额
+        memberName: tools.store.getData("user").memberName
+        /* 充值部分数据结束 */
+      };
     },
-    stopLimit() {
-      if (this.currentObj) {
-        if (this.currentObj.configs[0].onOrDown) {
-          return {
-            max: this.currentObj.configs[0].layers[0].onlineDepositMax,
-            min: this.currentObj.configs[0].layers[0].onlineDepositMin
-          };
-        } else {
-          return {
-            max: this.currentObj.configs[0].layers[0].coltdDepositMax,
-            min: this.currentObj.configs[0].layers[0].coltdDepositMin
-          };
-        }
-        /* return this.currentObj.configs[0].stopAmount; */
-      }
-    },
-    onDownOrBankOther() {
-      if (this.currentObj) {
-        return {
-          onOrDown: this.currentObj.configs[0].onOrDown,
-          bankOrOther: this.currentObj.configs[0].bankOrOther
-        };
-      }
-    }
-  },
-  created() {
-    this.getList();
-  },
-  methods: {
-    checkAmount() {
-      let reg = /^((?:-?0)|(?:-?[1-9]\d*))(?:\.\d{1,2})?$/g;
-      if (this.amount) {
-        if (
-          !reg.test(this.amount) ||
-          this.amount < this.stopLimit.min ||
-          this.amount > this.stopLimit.max
-        ) {
-          this.$message({
-            message: "请正确填写金额",
-            type: "warning"
-          });
-          this.amount = null;
-        }
-      }
-    },
-    getList() {
-      this.$http
-        .post("/pay/setting/list", {
-          layerId: tools.store.getData("user").hierarchyId
-        })
-        .then(res => {
-          console.log(tools.store.getData("user").hierarchyId);
-          if (res.data.status == 200) {
-            this.result = res.data.result;
+    computed: {
+      currentObj() {
+        console.log(this.result[this.currentChargingType])
+        return this.result[this.currentChargingType];
+      },
+      stopLimit() {
+        if (this.currentObj) {
+          if (this.currentObj.configs[0].onOrDown) {
+            return {
+              max: this.currentObj.configs[0].layers[0].onlineDepositMax,
+              min: this.currentObj.configs[0].layers[0].onlineDepositMin
+            };
+          } else {
+            return {
+              max: this.currentObj.configs[0].layers[0].coltdDepositMax,
+              min: this.currentObj.configs[0].layers[0].coltdDepositMin
+            };
           }
-        })
-        .catch(res => {
-          console.log(res);
-        });
+          /* return this.currentObj.configs[0].stopAmount; */
+        }
+      },
+      onDownOrBankOther() {
+        if (this.currentObj) {
+          return {
+            onOrDown: this.currentObj.configs[0].onOrDown,
+            bankOrOther: this.currentObj.configs[0].bankOrOther,
+            isShow: this.currentObj.isShow
+          };
+        }
+      }
     },
-    selectChargingType(id) {
-      this.currentChargingType = id;
+    created() {
+      this.getList();
     },
-    next() {
-      if (!this.amount) {
-        this.$message({
-          message: "请输入金额",
-          type: "warning"
-        });
-      } else if (
-        this.onDownOrBankOther.onOrDown == 0 &&
-        this.onDownOrBankOther.bankOrOther == 1
-      ) {
-        this.$emit("onNext", {
-          data: this.currentObj.configs,
-          page: "downLineBankCard",
-          money: this.amount,
-          id: this.currentObj.id
-        });
-      } else if (
-        this.onDownOrBankOther.onOrDown == 1 &&
-        this.onDownOrBankOther.bankOrOther == 0
-      ) {
-        let obj = {};
-        obj.memberId = tools.store.getData("user").id;
-        obj.settingType = this.currentObj.configs[0].onOrDown;
-        obj.settingId = this.currentObj.id;
-        obj.amount = this.amount;
-        obj.payMethod = "ALL";
-        obj.goodsName = "彩豆";
-        obj.remark = "线上充值";
-        // console.log(obj);
+    methods: {
+      checkAmount() {
+        let reg = /^((?:-?0)|(?:-?[1-9]\d*))(?:\.\d{1,2})?$/g;
+        if (this.amount) {
+          if (
+            !reg.test(this.amount) ||
+            this.amount < this.stopLimit.min ||
+            this.amount > this.stopLimit.max
+          ) {
+            this.$message({
+              message: "请正确填写金额",
+              type: "warning"
+            });
+            this.amount = null;
+          }
+        }
+      },
+      getList() {
         this.$http
-          .post("/recharge/order/create", obj)
+          .post("/pay/setting/list", {
+            layerId: tools.store.getData("user").hierarchyId
+          })
           .then(res => {
+            console.log(tools.store.getData("user").hierarchyId);
             if (res.data.status == 200) {
-              console.log(res.data);
-              for (let key in res.data.payArgs) {
-                let input = document.createElement("input"); //创建input节点
-                input.setAttribute("type", "hidden"); //定义类型是文本输入
-                input.setAttribute("name", key); //定义类型是文本输入
-                input.value = res.data.payArgs[key]; //定义类型是文本输入
-                this.$refs.form1.appendChild(input); //添加到form中显示
-              }
-              this.$refs.form1.submit();
-            } else {
-              console.log(res.data);
+              this.result = res.data.result;
             }
           })
           .catch(res => {
             console.log(res);
           });
-      } else if (
-        this.onDownOrBankOther.onOrDown == 0 &&
-        this.onDownOrBankOther.bankOrOther == 0
-      ) {
-        this.$emit("onNext", {
-          data: this.currentObj.configs[0],
-          page: "QrPay",
-          money: this.amount,
-          id: this.currentObj.id
-        });
+      },
+      selectChargingType(id) {
+        this.currentChargingType = id;
+      },
+      next() {
+        if (!this.amount) {
+          this.$message({
+            message: "请输入金额",
+            type: "warning"
+          });
+        } else {
+          if (this.onDownOrBankOther.isShow === 0) {
+            if (
+              this.onDownOrBankOther.onOrDown == 0 &&
+              this.onDownOrBankOther.bankOrOther == 1
+            ) {
+              this.$emit("onNext", {
+                data: this.currentObj.configs,
+                page: "downLineBankCard",
+                money: this.amount,
+                id: this.currentObj.id
+              });
+            } else if (
+              this.onDownOrBankOther.onOrDown == 1 &&
+              this.onDownOrBankOther.bankOrOther == 0
+            ) {
+              let obj = {};
+              obj.memberId = tools.store.getData("user").id;
+              obj.settingType = this.currentObj.configs[0].onOrDown;
+              obj.settingId = this.currentObj.id;
+              obj.amount = this.amount;
+              obj.payMethod = "ALL";
+              obj.goodsName = "彩豆";
+              obj.remark = "线上充值";
+              // console.log(obj);
+              this.$http
+                .post("/recharge/order/create", obj)
+                .then(res => {
+                  if (res.data.status == 200) {
+                    console.log(res.data);
+                    for (let key in res.data.payArgs) {
+                      let input = document.createElement("input"); //创建input节点
+                      input.setAttribute("type", "hidden"); //定义类型是文本输入
+                      input.setAttribute("name", key); //定义类型是文本输入
+                      input.value = res.data.payArgs[key]; //定义类型是文本输入
+                      this.$refs.form1.appendChild(input); //添加到form中显示
+                    }
+                    this.$refs.form1.submit();
+                  } else {
+                    console.log(res.data);
+                  }
+                })
+                .catch(res => {
+                  console.log(res);
+                });
+            } else if (
+              this.onDownOrBankOther.onOrDown == 0 &&
+              this.onDownOrBankOther.bankOrOther == 0
+            ) {
+              this.$emit("onNext", {
+                data: this.currentObj.configs[0],
+                page: "QrPay",
+                money: this.amount,
+                id: this.currentObj.id
+              });
+            }
+          } else {
+            let scan = {
+              memberId: tools.store.getData("user").id,
+              settingType: this.currentObj.configs[0].onOrDown,
+              settingId: this.currentObj.id,
+              amount: this.amount,
+              payMethod: this.currentObj.sort,
+              goodsName: "通扫",
+              remark: "线上充值"
+            };
+            // console.log(obj);
+            this.$http
+              .post("/recharge/order/create", scan)
+              .then(res => {
+                if (res.data.status == 200) {
+                  console.log(res);
+                }
+              })
+              .catch(res => {
+                console.log(res);
+              });
+          }
+        }
       }
     }
-  }
-};
+  };
 </script>
 <style lang="less" scoped>
-@import "./charging.less";
-@import "./btn.less";
+  @import "./charging.less";
+  @import "./btn.less";
 </style>
