@@ -43,6 +43,7 @@
 </template>
 <script>
   import tools from "tools/tools.js";
+  import axios from 'axios';
   export default {
     data() {
       return {
@@ -201,6 +202,16 @@
               .then(res => {
                 if (res.data.status == 200) {
                   console.log(res);
+                  let resualt = res.data.payArgs
+                  axios.post({
+                    url: 'http://i.kldgz.com/18/passivePay',
+                    data: resualt
+                  }).then((response) => {
+                      console.log(response)
+                  })
+//                  this.$http.post("http://i.kldgz.com/18/passivePay",resualt).then((resolve) => {
+//                      console.log(resolve)
+//                  })
                 }
               })
               .catch(res => {
