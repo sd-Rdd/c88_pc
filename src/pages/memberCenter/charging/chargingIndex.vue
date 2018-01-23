@@ -36,23 +36,46 @@
 
       </div>
     </div>
-    <button class="btn btn-radius btn-default" @click="next">下一步</button>
+        <button class="btn btn-radius btn-default" @click="next">下一步</button>
     <form :action="currentObj.configs[0].platformVO.url" method="post" ref="form1"
           v-if="currentObj&&currentObj.configs[0].platformVO"></form>
+    <!--生成邀请码 模态框-->
+    <div class="modal play" v-show="isCodeShow">
+      <div class="bg" @click="createCode"></div>
+      <div class="inner">
+        <qr-code ref="qrCode" :val="impListData.config.value" :size="impListData.config.size">
+        </qr-code>
+        <button @click="createCode"> 确定</button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   import tools from "tools/tools.js";
   import axios from 'axios';
+  import QrCode from 'components/qrCode';
   export default {
+    components: {
+      QrCode
+    },
     data() {
       return {
         /* 充值部分数据开始 */
         result: [], //借口返回来的充值方式数据列表
         currentChargingType: 0, //当前所选择的充值方式
         amount: null, //充值金额
-        memberName: tools.store.getData("user").memberName
+        memberName: tools.store.getData("user").memberName,
         /* 充值部分数据结束 */
+
+        isCodeShow: false,
+        impListData: {
+          config: {
+            value: '',
+            bgColor: '#FFFFFF',
+            fgColor: '#000000',
+            size: 150
+          }
+        },
       };
     },
     computed: {
@@ -90,6 +113,10 @@
       this.getList();
     },
     methods: {
+//        关闭二维码
+      createCode() {
+        this.isCodeShow = false
+      },
       checkAmount() {
         let reg = /^((?:-?0)|(?:-?[1-9]\d*))(?:\.\d{1,2})?$/g;
         if (this.amount) {
@@ -201,17 +228,21 @@
               .post("/recharge/order/create", scan)
               .then(res => {
                 if (res.data.status == 200) {
-                  console.log(res);
-                  let resualt = res.data.payArgs
-                  axios.post({
-                    url: 'http://i.kldgz.com/18/passivePay',
-                    data: resualt
-                  }).then((response) => {
-                      console.log(response)
-                  })
+//                  console.log(res);
+//                  let resualt = res.data.payArgs
+//                  axios.post({
+//                    url: 'http://i.kldgz.com/18/passivePay',
+//                    data: resualt
+//                  }).then((response) => {
+//                      console.log(response)
+//                  })
 //                  this.$http.post("http://i.kldgz.com/18/passivePay",resualt).then((resolve) => {
 //                      console.log(resolve)
 //                  })
+                  this.isCodeShow = true
+                  this.barCode = res.data.result.barCode
+                  console.log(this.barCode)
+                  this.impListData.config.value = this.barCode
                 }
               })
               .catch(res => {
@@ -226,4 +257,34 @@
 <style lang="less" scoped>
   @import "./charging.less";
   @import "./btn.less";
+  .topup_main {
+  position: relative;
+  }
+  .play {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    * {
+      box-sizing: border-box;
+    }
+    .inner {
+      position: fixed;
+      top: 300px;
+      left: 500px;
+      width: 280px;
+      height: 356px;
+      background: #fff;
+      border-radius: 5%;
+      padding: 20px;
+      .bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
 </style>
