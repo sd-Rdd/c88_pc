@@ -15,7 +15,8 @@ Vue.prototype.md5 = md5;//md5加密
 Vue.prototype.$http = axios;
 // Vue.prototype.$http.defaults.baseURL = 'http://103.230.242.79:9008';
 // Vue.prototype.$http.defaults.baseURL = 'http://192.168.0.129:9008';
-Vue.prototype.$http.defaults.baseURL = 'http://103.37.235.142:9008';
+Vue.prototype.$http.defaults.baseURL = 'http://192.168.0.197:9008';
+// Vue.prototype.$http.defaults.baseURL = 'http://103.37.235.142:9008';
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
