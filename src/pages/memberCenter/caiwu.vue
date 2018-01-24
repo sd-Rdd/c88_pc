@@ -207,6 +207,7 @@ import chargingIndex from "./charging/chargingIndex";
 import downLineBankCard from "./charging/downLineBankCard";
 import onlineBank from "./charging/onlineBank";
 import QrPay from "./charging/QrPay";
+import QrGmPay from "./charging/QrGmPay";
 export default {
   created() {
     this.fetchGethering();
@@ -279,7 +280,8 @@ export default {
     chargingIndex,
     downLineBankCard,
     onlineBank,
-    QrPay
+    QrPay,
+    QrGmPay
   },
   methods: {
     changePage1(a){

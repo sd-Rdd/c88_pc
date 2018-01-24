@@ -1,6 +1,6 @@
 <template>
-  <div class="topup_main">
-    <div class="main_header">
+  <div class="topup_main" v-loading.lock="loading" element-loading-customClass="loadingClass">
+    <div class="main_header" >
       <div class="user">
         <em>会员账号:</em>
         <span>{{memberName}}</span>
@@ -36,18 +36,18 @@
 
       </div>
     </div>
-        <button class="btn btn-radius btn-default" @click="next">下一步</button>
+    <button class="btn btn-radius btn-default" @click="next">下一步</button>
     <form :action="currentObj.configs[0].platformVO.url" method="post" ref="form1"
           v-if="currentObj&&currentObj.configs[0].platformVO"></form>
-    <!--生成邀请码 模态框-->
-    <div class="modal play" v-show="isCodeShow">
-      <div class="bg" @click="createCode"></div>
-      <div class="inner">
-        <qr-code ref="qrCode" :val="impListData.config.value" :size="impListData.config.size">
-        </qr-code>
-        <button @click="createCode"> 确定</button>
-      </div>
-    </div>
+    <!--&lt;!&ndash;生成邀请码 模态框&ndash;&gt;-->
+    <!--<div class="modal play" v-show="isCodeShow">-->
+    <!--<div class="bg" @click="createCode"></div>-->
+    <!--<div class="inner">-->
+    <!--<qr-code ref="qrCode" :val="impListData.config.value" :size="impListData.config.size">-->
+    <!--</qr-code>-->
+    <!--<button @click="createCode"> 确定</button>-->
+    <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 <script>
@@ -60,22 +60,13 @@
     },
     data() {
       return {
+        loading: false,
         /* 充值部分数据开始 */
         result: [], //借口返回来的充值方式数据列表
         currentChargingType: 0, //当前所选择的充值方式
         amount: null, //充值金额
         memberName: tools.store.getData("user").memberName,
         /* 充值部分数据结束 */
-
-        isCodeShow: false,
-        impListData: {
-          config: {
-            value: '',
-            bgColor: '#FFFFFF',
-            fgColor: '#000000',
-            size: 150
-          }
-        },
       };
     },
     computed: {
@@ -141,7 +132,12 @@
           .then(res => {
             console.log(tools.store.getData("user").hierarchyId);
             if (res.data.status == 200) {
-              this.result = res.data.result;
+              //支付方式适用平台（1：PC，2：WAP，3：通用）
+              let result = res.data.result.filter((item) => {
+                return item.configs[0].plateform !== 2;
+              });
+              this.result = result;
+              console.log(res)
             }
           })
           .catch(res => {
@@ -158,6 +154,7 @@
             type: "warning"
           });
         } else {
+          // 不需要展示二维码
           if (this.onDownOrBankOther.isShow === 0) {
             if (
               this.onDownOrBankOther.onOrDown == 0 &&
@@ -214,6 +211,7 @@
               });
             }
           } else {
+            this.loading = true;
             let scan = {
               memberId: tools.store.getData("user").id,
               settingType: this.currentObj.configs[0].onOrDown,
@@ -228,25 +226,38 @@
               .post("/recharge/order/create", scan)
               .then(res => {
                 if (res.data.status == 200) {
-//                  console.log(res);
-//                  let resualt = res.data.payArgs
-//                  axios.post({
-//                    url: 'http://i.kldgz.com/18/passivePay',
-//                    data: resualt
-//                  }).then((response) => {
-//                      console.log(response)
-//                  })
-//                  this.$http.post("http://i.kldgz.com/18/passivePay",resualt).then((resolve) => {
-//                      console.log(resolve)
-//                  })
-                  this.isCodeShow = true
-                  this.barCode = res.data.result.barCode
-                  console.log(this.barCode)
-                  this.impListData.config.value = this.barCode
+                  console.log(res)
+                  let respCode = res.data.result.respCode
+                  if (respCode === '00') {
+                    let result = {
+                      barCode:res.data.result.barCode,
+                      traceno:res.data.result.traceno,
+                      payTypeName:this.result.filter((item,index) => {
+                          return index === this.currentChargingType
+                      })[0].name
+                    };
+                    let data = Object.assign(new Object(), this.currentObj.configs[0], result);
+                    console.log(data);
+                    this.$emit("onNext", {
+                      data: data,
+                      page: "QrGmPay",
+                      money: this.amount,
+                      id: this.currentObj.id
+                    })
+                  } else {
+                    this.$alert(res.data.result.message, {
+                      confirmButtonText: "确定",
+                      center: true
+                    });
+                  }
+
+//                  this.impListData.config.value = this.barCode
                 }
+                this.loading = false;
               })
               .catch(res => {
                 console.log(res);
+                this.loading = false;
               });
           }
         }
@@ -257,9 +268,11 @@
 <style lang="less" scoped>
   @import "./charging.less";
   @import "./btn.less";
+
   .topup_main {
-  position: relative;
+    position: relative;
   }
+
   .play {
     position: fixed;
     height: 100%;
