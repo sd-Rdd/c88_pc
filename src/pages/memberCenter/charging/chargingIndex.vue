@@ -154,22 +154,24 @@
             type: "warning"
           });
         } else {
-          // 不需要展示二维码
-          if (this.onDownOrBankOther.isShow === 0) {
-            if (
-              this.onDownOrBankOther.onOrDown == 0 &&
-              this.onDownOrBankOther.bankOrOther == 1
-            ) {
-              this.$emit("onNext", {
-                data: this.currentObj.configs,
-                page: "downLineBankCard",
-                money: this.amount,
-                id: this.currentObj.id
-              });
-            } else if (
-              this.onDownOrBankOther.onOrDown == 1 &&
-              this.onDownOrBankOther.bankOrOther == 0
-            ) {
+          //线下银行卡
+          if (
+            this.onDownOrBankOther.onOrDown == 0 &&
+            this.onDownOrBankOther.bankOrOther == 1
+          ) {
+            this.$emit("onNext", {
+              data: this.currentObj.configs,
+              page: "downLineBankCard",
+              money: this.amount,
+              id: this.currentObj.id
+            });
+          } else if (
+            //线上非银行卡（即第三方支付）
+            this.onDownOrBankOther.onOrDown == 1 &&
+            this.onDownOrBankOther.bankOrOther == 0
+          ) {
+            // 第三方支付平台不需要本商户系统展示二维码isShow=0
+            if (this.onDownOrBankOther.isShow === 0) {
               let obj = {};
               obj.memberId = tools.store.getData("user").id;
               obj.settingType = this.currentObj.configs[0].onOrDown;
@@ -199,66 +201,68 @@
                 .catch(res => {
                   console.log(res);
                 });
-            } else if (
-              this.onDownOrBankOther.onOrDown == 0 &&
-              this.onDownOrBankOther.bankOrOther == 0
-            ) {
-              this.$emit("onNext", {
-                data: this.currentObj.configs[0],
-                page: "QrPay",
-                money: this.amount,
-                id: this.currentObj.id
-              });
-            }
-          } else {
-            this.loading = true;
-            let scan = {
-              memberId: tools.store.getData("user").id,
-              settingType: this.currentObj.configs[0].onOrDown,
-              settingId: this.currentObj.id,
-              amount: this.amount,
-              payMethod: this.currentObj.sort,
-              goodsName: "通扫",
-              remark: "线上充值"
-            };
-            // console.log(obj);
-            this.$http
-              .post("/recharge/order/create", scan)
-              .then(res => {
-                if (res.data.status == 200) {
-                  console.log(res)
-                  let respCode = res.data.result.respCode
-                  if (respCode === '00') {
-                    let result = {
-                      barCode:res.data.result.barCode,
-                      traceno:res.data.result.traceno,
-                      payTypeName:this.result.filter((item,index) => {
+              //第三方支付平台需要本商户系统展示二维码isShow!=0
+            } else {
+              this.loading = true;
+              let scan = {
+                memberId: tools.store.getData("user").id,
+                settingType: this.currentObj.configs[0].onOrDown,
+                settingId: this.currentObj.id,
+                amount: this.amount,
+                payMethod: this.currentObj.sort,
+                goodsName: "通扫",
+                remark: "线上充值"
+              };
+              // console.log(obj);
+              this.$http
+                .post("/recharge/order/create", scan)
+                .then(res => {
+                  if (res.data.status == 200) {
+                    console.log(res)
+                    let respCode = res.data.result.respCode
+                    if (respCode === '00') {
+                      let result = {
+                        barCode: res.data.result.barCode,
+                        traceno: res.data.result.traceno,
+                        payTypeName: this.result.filter((item, index) => {
                           return index === this.currentChargingType
-                      })[0].name
-                    };
-                    let data = Object.assign(new Object(), this.currentObj.configs[0], result);
-                    console.log(data);
-                    this.$emit("onNext", {
-                      data: data,
-                      page: "QrGmPay",
-                      money: this.amount,
-                      id: this.currentObj.id
-                    })
-                  } else {
-                    this.$alert(res.data.result.message, {
-                      confirmButtonText: "确定",
-                      center: true
-                    });
-                  }
+                        })[0].name
+                      };
+                      let data = Object.assign(new Object(), this.currentObj.configs[0], result);
+                      console.log(data);
+                      this.$emit("onNext", {
+                        data: data,
+                        page: "QrGmPay",
+                        money: this.amount,
+                        id: this.currentObj.id
+                      })
+                    } else {
+                      this.$alert(res.data.result.message, {
+                        confirmButtonText: "确定",
+                        center: true
+                      });
+                    }
 
 //                  this.impListData.config.value = this.barCode
-                }
-                this.loading = false;
-              })
-              .catch(res => {
-                console.log(res);
-                this.loading = false;
-              });
+                  }
+                  this.loading = false;
+                })
+                .catch(res => {
+                  console.log(res);
+                  this.loading = false;
+                });
+            }
+            //线下非银行卡
+          } else if (
+            this.onDownOrBankOther.onOrDown == 0 &&
+            this.onDownOrBankOther.bankOrOther == 0
+          ) {
+            this.$emit("onNext", {
+              data: this.currentObj.configs[0],
+              page: "QrPay",
+              money: this.amount,
+              id: this.currentObj.id
+            });
           }
         }
       }
