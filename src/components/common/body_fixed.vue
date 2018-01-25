@@ -14,6 +14,7 @@
                 <!-- <img src="https://cpweb.kosunmobile.com/c9.kosungames.com/upload/596f10066891c.png" alt=""> -->
             </a>
             <span class="foot">
+              <img src="../../assets/image/qrAndroid.png" alt="" style="width: 126px">
                 <em class="b">扫一扫</em>
                 <em class="s">安卓 APP下载</em>
             </span>
@@ -42,6 +43,7 @@
             </a>
 
             <span class="foot">
+                <img src="../../assets/image/qrIOS.png" alt="" style="width: 126px">
                 <em class="b">扫一扫</em>
                 <em class="s">苹果 APP下载</em>
             </span>

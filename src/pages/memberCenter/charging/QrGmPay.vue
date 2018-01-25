@@ -28,7 +28,7 @@
                 存款金额：
               </label>
               <input type="text" v-model="amount" style="display: none" readonly>
-              <span class="sum">￥：{{amount}}</span>
+              <span class="sum">￥{{amount}}</span>
             </div>
           </div>
           <!--<div class="form_group">-->
@@ -53,7 +53,7 @@
               <label for="" class="three" title="订单号">
                 订单号：
               </label>
-              <input type="text" class="input"  v-model="subPageData.traceno" readonly>
+              <span class="input">{{subPageData.traceno}}</span>
             </div>
           </div>
           <!--<div class="form_group">-->

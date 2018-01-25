@@ -213,7 +213,6 @@
                 goodsName: "通扫",
                 remark: "线上充值"
               };
-              // console.log(obj);
               this.$http
                 .post("/recharge/order/create", scan)
                 .then(res => {
