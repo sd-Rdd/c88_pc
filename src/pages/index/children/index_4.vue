@@ -4,37 +4,37 @@
       <i class="iconfont icon-shouji"></i>
       手机客户端下载
     </div>
-  
+
     <div class="down_app">
       <div class="left app-l" id="IphoneA" v-show="qr==1">
-        <img src="" width="100" height="100" alt="苹果二维码">
+        <img src="../../../assets/image/ios-100.png" width="100" height="100" alt="苹果二维码">
       </div>
-  
+
       <div class="left app-l" id="AndroidA" v-show="qr==2">
-        <img src="" width="100" height="100" alt="安卓二维码">
+        <img src="../../../assets/image/Android-100.png" width="100" height="100" alt="安卓二维码">
       </div>
-  
+
       <div class="right app-r">
-  
+
         <li @click="changeQr(1)">
           <i class="iconfont icon-apple"></i>
           <a  class="IphoneA">Iphone 版</a>
         </li>
-  
+
         <li @click="changeQr(2)">
           <i class="iconfont icon-anzhuo"></i>
           <a  class="AndroidA">Android 版</a>
         </li>
-  
+
         <li>
           <router-link to="/mobile">更多方式</router-link>
         </li>
-  
+
       </div>
     </div>
-  
+
     <div class="tab down_box_notice">
-  
+
       <div class="down_box_notice" id="down_box_notice">
         <ul class="down_box_notice_tab" id="down_box_notice_tab">
           <li :class="{'current':Menu==1}" @mouseenter="changeMenu(1)">网站公告</li>
@@ -57,11 +57,11 @@
               <router-link :to="{name:'helpList',params:{'listId':57}}">充值要手续费吗</router-link>
             </li>
           </ul>
-  
+
         </div>
       </div>
     </div>
-  
+
   </div>
 </template>
 <script>

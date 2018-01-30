@@ -4,7 +4,7 @@
       <!-- 上半部分 -->
       <div class="top">
         <div class="logo">
-          <img src="../../assets/image/logo.png" style="width:227px;height:68px;">
+          <img src="../../assets/image/C88-logo.png" style="width:227px;height:68px;">
         </div>
         <div class="status-bar">
           <div class="left" v-if="!user.id">

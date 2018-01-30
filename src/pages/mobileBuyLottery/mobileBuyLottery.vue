@@ -6,9 +6,11 @@
                 <div class="down_app">
                     <a href="#az" class="bg_btn az">
                         <img src="../../assets/image/AndroidDown.png" alt="">
+                        <img src="../../assets/image/Android-200.png" class="qrImg" alt="">
                     </a>
                     <a href="#ap" class="bg_btn ap">
                         <img src="../../assets/image/iphoneDown.png" alt="">
+                        <img src="../../assets/image/ios-200.png" style="width: 200px; height: 200px; margin-top: 20px;" alt="">
                     </a>
                 </div>
                 <!-- <div class="qr1">
@@ -64,7 +66,7 @@ export default {
 }
 
 .shouji .shouji_main .down_app a {
-    overflow: hidden;
+    /*overflow: hidden;*/
     display: inline-block;
     width: 280px;
     height: 60px;
@@ -75,6 +77,12 @@ export default {
 .shouji .shouji_main .down_app a img {
     width: 245px;
     height: 58px
+}
+
+.shouji .shouji_main .down_app a img.qrImg {
+   width: 200px;
+   height: 200px;
+   margin-top: 20px;
 }
 
 .shouji .shouji_main .qr1 {

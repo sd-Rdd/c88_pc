@@ -3,7 +3,7 @@
     <div class='main'>
       <div class='left logo'>
         <router-link class='logo-link' to="/index">
-          <img src='../../../assets/image/logo.png' class='logo-img'>
+          <img src='../../../assets/image/C88-logo.png' class='logo-img'>
         </router-link>
       </div>
       <div class='right login_and_userinfo'>
