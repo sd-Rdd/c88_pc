@@ -112,7 +112,7 @@ export default {
         .logo_image {
           display: block;
           height: 68px;
-          background: url("../../assets/image/logo.png") no-repeat;
+          background: url("../../assets/image/C88-logo.png") no-repeat;
           background-size: 227px 68px;
           width: 227px;
           overflow: hidden;
