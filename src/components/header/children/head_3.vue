@@ -74,7 +74,7 @@
               </div>
               <div class="secondNav" style="display:none;top:-138px;">
                 <div class="title">全部</div>
-                
+
                 <div class="ulDiv">
                     <ul>
                         <li v-for="(item,index) in AllHideList" :key="index"><a @click="openWin('/buyLottery/bet'+item.lotteryNumber)">{{item.lotteryName}}</a></li>
@@ -112,7 +112,7 @@
         </ul>
       </div>
   </div>
-</div>  
+</div>
 </template>
 <script>
 import url from "static/url.js";
@@ -495,4 +495,3 @@ export default {
   position: relative;
 }
 </style>
-

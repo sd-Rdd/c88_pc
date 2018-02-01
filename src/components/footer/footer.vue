@@ -4,15 +4,14 @@
       <div class="main footer-main">
         <div class="left footer-qr">
           <div class="footer-qr-head">
-            <a href="" class="/">
-            <!-- 头部标题 -->
-              <!-- <img src="https://cpweb.kosunmobile.com/c9.kosungames.com/uploads/images/20170226/58b2eaf5975f6.png" alt=""> -->
+            <a href="http://cp-cp88.com" class="">
+              <img src="../../assets/image/title.png" alt="">
             </a>
           </div>
           <div class="footer-qr-img">
             <!-- 二维码 -->
-            <!-- <img width="120" height="120" src="https://cpweb.kosunmobile.com/c9.kosungames.com/uploads/images/20170322/58d243d2486b0.jpg"
-              alt=""> -->
+            <img width="120" height="120" src="../../assets/image/cp-cp88.png"
+              alt="">
           </div>
           <div class="footer-qr-foot">
             <!-- 扫一扫 手机购彩更方便 -->
@@ -199,7 +198,7 @@
 
   .footer .footer-main .footer-qr .footer-qr-head img {
     width: 124px;
-    height: 28px
+    height: auto;
   }
 
   .footer .footer-main .footer-qr .footer-qr-img {

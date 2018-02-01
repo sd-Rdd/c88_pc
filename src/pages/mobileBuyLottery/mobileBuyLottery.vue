@@ -47,10 +47,10 @@ export default {
 
 .shouji .shouji_main {
     overflow: hidden;
-    background: url("../../assets/image/cp.png");
-    background-size: 1282px 668px;
+    background: url("../../assets/image/bg.png");
+    background-size: 100% auto;
     background-repeat: no-repeat;
-    height: 578px;
+    height: 668px;
     position: relative
 }
 
@@ -144,4 +144,3 @@ export default {
     background-repeat: no-repeat
 }
 </style>
-
