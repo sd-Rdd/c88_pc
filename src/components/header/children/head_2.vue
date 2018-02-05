@@ -3,7 +3,7 @@
     <div class='main'>
       <div class='left logo'>
         <router-link class='logo-link' to="/index">
-          <img src='../../../assets/image/C88-logo.png' class='logo-img'>
+          <img src='../../../assets/image/logo.png' class='logo-img'>
         </router-link>
       </div>
       <div class='right login_and_userinfo'>
@@ -197,11 +197,14 @@ export default {
   overflow: hidden;
 }
 
-.left {
+.left,
+.right {
   overflow: hidden;
   float: left;
 }
-
+.logo {
+  width: 30%;
+}
 .header .logo .logo-link {
   overflow: hidden;
   margin-top: 10px;
@@ -210,20 +213,15 @@ export default {
 }
 
 .logo-img {
-  width: 227px;
-  height: 68px;
+  width: 188px;
+  height: auto;
 }
 
 .header .main .login_and_userinfo {
   /*width: 685px;*/
-  width: 77%;
+  width: 70%;
   overflow: hidden;
   margin-top: 26px;
-}
-
-.right {
-  overflow: hidden;
-  float: right;
 }
 
 .header .main .login_and_userinfo .login {

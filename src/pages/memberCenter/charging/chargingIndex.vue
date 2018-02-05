@@ -212,8 +212,8 @@
                 settingType: this.currentObj.configs[0].onOrDown,
                 settingId: this.currentObj.id,
                 amount: this.amount,
-                payMethod: this.currentObj.sort,
-                goodsName: "通扫",
+                payMethod: this.currentObj.payMethod,
+                goodsName: "彩豆",
                 remark: "线上充值"
               };
               this.$http
