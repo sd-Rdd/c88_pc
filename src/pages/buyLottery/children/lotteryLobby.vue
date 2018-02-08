@@ -21,7 +21,8 @@
                 </div>
             </div>
             <div class="bottom">
-                <a class="fun" href="javascript:;">
+              <!--href="javascript:;"-->
+                <a class="fun"  @click="routerNumberMoves">
                     <i class="iconfont" style="color: rgb(248, 77, 77); font-size: 20px;"></i>
                     <span>号码走势</span>
                 </a>
@@ -53,6 +54,9 @@ export default {
   },
   components: { counter },
   methods: {
+    routerNumberMoves() {
+      this.$router.push('charts')
+    },
     gotoNewPage(id) {
       window.open(url + '/rules?lotteryNumber='+id, '')
     },
