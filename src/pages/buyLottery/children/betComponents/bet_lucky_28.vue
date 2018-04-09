@@ -1,203 +1,225 @@
 <template>
   <div class="lucky-28" v-if="lotteryCodeList.length!=0">
-    <!-- 特码玩法开始 -->
-    <div class="lucky-grid">
-      <div class="grid-header">
-        <div style="width:100%;">
-          <div class="label">特码</div>
-        </div>
-      </div>
-      <div class="grid-title">
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-      </div>
-      <div class="grid-body" v-if="tema">
-        <div class="body-col" v-for="(item,index1) in tema" :key="index1" >
-          <div class="body-row" v-for="(item2,index2) in item" :key="index2">
-            <div class="option">
-              <div :class="{grey1:item2.num==0||item2.num==13||item2.num==14||item2.num==27,green1:item2.num==1||item2.num==4||item2.num==7||item2.num==10||item2.num==16||item2.num==19||item2.num==22||item2.num==25,blue1:item2.num==2||item2.num==5||item2.num==8||item2.num==11||item2.num==17||item2.num==20||item2.num==23||item2.num==26,red1:item2.num==3||item2.num==6||item2.num==9||item2.num==12||item2.num==15||item2.num==18||item2.num==21||item2.num==24}">{{item2.num}}</div>
-            </div>
-            <div class="lucky-odds">
-              <span>{{item2.odds}}</span>
-            </div>
-            <div class="money">
-              <input maxlength="6" v-model="InputPrice['1'+item2.num]" @keyup="verify('1'+item2.num)">
+
+    <div class="right-part">
+      <div style="display: table-cell">
+        <!-- 特码玩法开始 -->
+        <div class="lucky-grid">
+          <div class="grid-header">
+            <div style="width:100%;">
+              <div class="label">特码</div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- 特码玩法结束 -->
-    <!-- 特码包三玩法开始 -->
-    <div class="bao-san">
-      <div class="label">特码包三</div>
-      <!-- <div class="bs-odds" v-if="temabaosan">{{temabaosan[0].odds[0]}}</div> -->
-      <div class="bs-content" @mouseleave="hideSelectList">
-        <div class="item" @click="showSelectList(0)">
-          <div class="num" :class="{grey1:selectNum1.color==1,green1:selectNum1.color==2,blue1:selectNum1.color==3,red1:selectNum1.color==4}">{{selectNum1.num}}</div>
-          <i class="el-icon-caret-bottom"></i>
-        </div>
-        <div class="item" @click="showSelectList(98)">
-          <div class="num" :class="{grey1:selectNum2.color==1,green1:selectNum2.color==2,blue1:selectNum2.color==3,red1:selectNum2.color==4}">{{selectNum2.num}}</div>
-          <i class="el-icon-caret-bottom"></i>
-        </div>
-        <div class="item" @click="showSelectList(196)">
-          <div class="num" :class="{grey1:selectNum3.color==1,green1:selectNum3.color==2,blue1:selectNum3.color==3,red1:selectNum3.color==4}">{{selectNum3.num}}</div>
-          <i class="el-icon-caret-bottom"></i>
-        </div>
-        <div class="select-list" style="left: 0px;" v-show="isShowSelectList" ref="showSelectList1">
-          <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0%;">
-            <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
-              <div class="select-list-item" v-for="(item,index) in Numbers" :key="index">
-                <div :class="{grey1:item.color==1,green1:item.color==2,blue1:item.color==3,red1:item.color==4}" @click="selectThis(item.color,item.num)">{{item.num}}</div>
+          <div class="grid-title">
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+          </div>
+          <div class="grid-body" v-if="tema">
+            <div class="body-col" v-for="(item,index1) in tema" :key="index1" >
+              <div class="body-row" v-for="(item2,index2) in item" :key="index2">
+                <div class="option">
+                  <div :class="{grey1:item2.num==0||item2.num==13||item2.num==14||item2.num==27,green1:item2.num==1||item2.num==4||item2.num==7||item2.num==10||item2.num==16||item2.num==19||item2.num==22||item2.num==25,blue1:item2.num==2||item2.num==5||item2.num==8||item2.num==11||item2.num==17||item2.num==20||item2.num==23||item2.num==26,red1:item2.num==3||item2.num==6||item2.num==9||item2.num==12||item2.num==15||item2.num==18||item2.num==21||item2.num==24}">{{item2.num}}</div>
+                </div>
+                <div class="lucky-odds">
+                  <span>{{item2.odds}}</span>
+                </div>
+                <div class="money">
+                  <input maxlength="6" v-model="InputPrice['1'+item2.num]" @keyup="verify('1'+item2.num)">
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- 特码玩法结束 -->
+        <!-- 特码包三玩法开始 -->
+        <div class="bao-san">
+          <div class="label">特码包三</div>
+          <!-- <div class="bs-odds" v-if="temabaosan">{{temabaosan[0].odds[0]}}</div> -->
+          <div class="bs-content" @mouseleave="hideSelectList">
+            <div class="item" @click="showSelectList(0)">
+              <div class="num" :class="{grey1:selectNum1.color==1,green1:selectNum1.color==2,blue1:selectNum1.color==3,red1:selectNum1.color==4}">{{selectNum1.num}}</div>
+              <i class="el-icon-caret-bottom"></i>
+            </div>
+            <div class="item" @click="showSelectList(98)">
+              <div class="num" :class="{grey1:selectNum2.color==1,green1:selectNum2.color==2,blue1:selectNum2.color==3,red1:selectNum2.color==4}">{{selectNum2.num}}</div>
+              <i class="el-icon-caret-bottom"></i>
+            </div>
+            <div class="item" @click="showSelectList(196)">
+              <div class="num" :class="{grey1:selectNum3.color==1,green1:selectNum3.color==2,blue1:selectNum3.color==3,red1:selectNum3.color==4}">{{selectNum3.num}}</div>
+              <i class="el-icon-caret-bottom"></i>
+            </div>
+            <div class="select-list" style="left: 0px;" v-show="isShowSelectList" ref="showSelectList1">
+              <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0;">
+                <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
+                  <div class="select-list-item" v-for="(item,index) in Numbers" :key="index">
+                    <div :class="{grey1:item.color==1,green1:item.color==2,blue1:item.color==3,red1:item.color==4}" @click="selectThis(item.color,item.num)">{{item.num}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bs-money">
+            <span>下注金额：</span>
+            <input maxlength="6" v-model="InputPrice['2']" @keyup="verify('2')">
+            <span>元</span>
+          </div>
+        </div>
+        <!-- 特码包三玩法结束 -->
+        <div class="lucky-grid">
+          <div class="grid-header">
+            <div style="width:50%;">
+              <div class="label">混合</div>
+            </div>
+            <div style="width:25%;">
+              <div class="label">波色</div>
+            </div>
+            <div style="width:25%;">
+              <div class="label">豹子</div>
+            </div>
+          </div>
+          <div class="grid-title">
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+            <div class="title-col">
+              <div class="option">选项</div>
+              <div class="lucky-odds">赔率</div>
+              <div class="money">金额</div>
+            </div>
+          </div>
+          <div class="grid-body" ><!-- v-if="hunhe&&bose&&baozi" -->
+            <!-- 混合玩法开始 -->
+            <div class="body-col" v-for="(item,index1) in hunhe" :key="index1" >
+              <div class="body-row" v-for="(item2,index2) in item" :key="index2">
+                <div class="option">
+                  <div style="font-size: 0.875rem;" :class="{widthNum:item2.num.length==2,red1:item2.num=='大'||item2.num=='小'||item2.num=='单'||item2.num=='双',blue1:item2.num=='大单'||item2.num=='小单'||item2.num=='大双'||item2.num=='小双',green1:item2.num=='极大'||item2.num=='极小'}">{{item2.num}}</div>
+                </div>
+                <div class="lucky-odds">
+                  <span>{{item2.odds}}</span>
+                </div>
+                <div class="money">
+                  <input name="0" maxlength="6" v-model="InputPrice['0'+item2.num]" @keyup="verify('0'+item2.num)">
+                </div>
+              </div>
+            </div>
+            <!-- 混合玩法结束 -->
+            <!-- 波色玩法开始 -->
+            <div class="body-col">
+              <div class="body-row" v-for="(item2,index2) in bose" :key="index2">
+                <div class="option">
+                  <div class="widthNum" style="font-size: 0.875rem;" :class="{red1:item2.num=='红波',green1:item2.num=='绿波',blue1:item2.num=='蓝波'}">{{item2.num}}</div>
+                </div>
+                <div class="lucky-odds">
+                  <span>{{item2.odds}}</span>
+                </div>
+                <div class="money">
+                  <input name="0" maxlength="6" v-model="InputPrice['3'+item2.num]" @keyup="verify('3'+item2.num)">
+                </div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+            </div>
+            <!-- 波色玩法结束 -->
+            <!-- 豹子玩法开始 -->
+            <div class="body-col">
+              <div class="body-row" v-for="(item2,index2) in baozi" :key="index2">
+                <div class="option">
+                  <div class="widthNum" style="font-size: 0.875rem;">{{item2.num}}</div>
+                </div>
+                <div class="lucky-odds">
+                  <span>{{item2.odds}}</span>
+                </div>
+                <div class="money">
+                  <input name="0" maxlength="6" v-model="InputPrice['4'+item2.num]" @keyup="verify('4'+item2.num)">
+                </div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+              <div class="body-row">
+                <div class="option"></div>
+                <div class="lucky-odds"></div>
+                <div class="money"></div>
+              </div>
+            </div>
+            <!-- 豹子玩法结束 -->
+          </div>
+        </div>
+
       </div>
-      <div class="bs-money">
-        <span>下注金额：</span>
-        <input maxlength="6" v-model="InputPrice['2']" @keyup="verify('2')">
-        <span>元</span>
+
+      <div class="lotteryRight" style="height: 720px;">
+        <h3 class="re">
+          <span>近期开奖</span>
+        </h3>
+        <div class="recentCon">
+          <ul>
+            <li>
+              <start-lotto2></start-lotto2>
+            </li>
+          </ul>
+        </div>
       </div>
+
+
     </div>
-    <!-- 特码包三玩法结束 -->
-    <div class="lucky-grid">
-      <div class="grid-header">
-        <div style="width:50%;">
-          <div class="label">混合</div>
-        </div>
-        <div style="width:25%;">
-          <div class="label">波色</div>
-        </div>
-        <div style="width:25%;">
-          <div class="label">豹子</div>
-        </div>
-      </div>
-      <div class="grid-title">
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-        <div class="title-col">
-          <div class="option">选项</div>
-          <div class="lucky-odds">赔率</div>
-          <div class="money">金额</div>
-        </div>
-      </div>
-      <div class="grid-body" ><!-- v-if="hunhe&&bose&&baozi" -->
-        <!-- 混合玩法开始 -->
-        <div class="body-col" v-for="(item,index1) in hunhe" :key="index1" >
-          <div class="body-row" v-for="(item2,index2) in item" :key="index2">
-            <div class="option">
-              <div style="font-size: 0.875rem;" :class="{widthNum:item2.num.length==2,red1:item2.num=='大'||item2.num=='小'||item2.num=='单'||item2.num=='双',blue1:item2.num=='大单'||item2.num=='小单'||item2.num=='大双'||item2.num=='小双',green1:item2.num=='极大'||item2.num=='极小'}">{{item2.num}}</div>
-            </div>
-            <div class="lucky-odds">
-              <span>{{item2.odds}}</span>
-            </div>
-            <div class="money">
-              <input name="0" maxlength="6" v-model="InputPrice['0'+item2.num]" @keyup="verify('0'+item2.num)">
-            </div>
-          </div>
-        </div>
-        <!-- 混合玩法结束 -->
-        <!-- 波色玩法开始 -->
-        <div class="body-col">
-          <div class="body-row" v-for="(item2,index2) in bose" :key="index2">
-            <div class="option">
-              <div class="widthNum" style="font-size: 0.875rem;" :class="{red1:item2.num=='红波',green1:item2.num=='绿波',blue1:item2.num=='蓝波'}">{{item2.num}}</div>
-            </div>
-            <div class="lucky-odds">
-              <span>{{item2.odds}}</span>
-            </div>
-            <div class="money">
-              <input name="0" maxlength="6" v-model="InputPrice['3'+item2.num]" @keyup="verify('3'+item2.num)">
-            </div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-        </div>
-        <!-- 波色玩法结束 -->
-        <!-- 豹子玩法开始 -->
-        <div class="body-col">
-          <div class="body-row" v-for="(item2,index2) in baozi" :key="index2">
-            <div class="option">
-              <div class="widthNum" style="font-size: 0.875rem;">{{item2.num}}</div>
-            </div>
-            <div class="lucky-odds">
-              <span>{{item2.odds}}</span>
-            </div>
-            <div class="money">
-              <input name="0" maxlength="6" v-model="InputPrice['4'+item2.num]" @keyup="verify('4'+item2.num)">
-            </div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-          <div class="body-row">
-            <div class="option"></div>
-            <div class="lucky-odds"></div>
-            <div class="money"></div>
-          </div>
-        </div>
-        <!-- 豹子玩法结束 -->
-      </div>
-    </div>
+
 
     <div class="lucky-result">
       <div class="bet-table">
-        <div class="table-cap">
-          <div class="cap-ct"></div>
-        </div>
+        <!--<div class="table-cap">-->
+          <!--<div class="cap-ct"></div>-->
+        <!--</div>-->
         <div class="tb-ct">
           <div class="tb-header">
             <div class="lk-type">下注类型</div>
@@ -207,7 +229,7 @@
             <div class="lk-del"></div>
           </div>
           <div class="tb-body">
-            <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0%;">
+            <div style="position: relative; overflow: hidden; width: 100%; height: 100%; background:#fff;flex: 1 1 0%;">
               <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
                 <div class="bd-row" v-for="(item,index) in NotesArr" :key="index">
                   <div class="lk-type">{{item.type}}</div>
@@ -248,8 +270,10 @@
   </div>
 </template>
 <script>
+  import startLotto2 from '../betComponents/startlotto2'
 import tools from "tools/tools.js";
 export default {
+    components: { startLotto2 },
   data() {
     return {
       InputPrice: {}, //保存输入框数据
@@ -639,7 +663,7 @@ export default {
                 break;
               case '单':
                 obj.selectedNumber = [[503]];
-                break;  
+                break;
                 case '双':
                 obj.selectedNumber = [[504]];
                 break;
@@ -747,7 +771,7 @@ export default {
       }
     }
   },
-  
+
   beforeMount(){
     this.$store.commit('initLotteryData');
   },
@@ -782,4 +806,16 @@ export default {
 .red1 {
   background-color: rgb(241, 23, 23) !important;
 }
+
+
+
+  /*.lotteryRight {*/
+    /*width: 210px;*/
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+  /*}*/
+
 </style>

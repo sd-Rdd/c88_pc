@@ -278,7 +278,8 @@
 
   .footer_sec_icon {
     overflow: hidden;
-    padding-top: 20px
+    padding-top: 20px;
+    background: #0D0D0D;
   }
 
   .footer_sec_icon ul {
@@ -297,14 +298,15 @@
 
   .footer_copyright {
     text-align: center;
-    margin-top: 10px;
-    padding-top: 10px;
-    padding-bottom: 20px
+    /*margin-top: 10px;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #0D0D0D;
   }
 
   .footer_copyright p {
     font-size: .75rem;
-    color: #333333;
+    color: #6B696C;
     line-height: 1.3;
   }
 

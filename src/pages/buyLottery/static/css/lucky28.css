@@ -11,9 +11,10 @@
 }
 
 .lucky-28 .lucky-grid {
-    width: 1000px;
+    width: 760px;
     flex-direction: column;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    background: #fff;
 }
 
 .lucky-28 .lucky-grid .grid-header {
@@ -94,7 +95,7 @@
 }
 
 .lucky-28 .lucky-grid .option {
-    width: 96px;
+    width: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,6 +144,7 @@
 }
 
 .lucky-28 .bao-san {
+    width: 760px;
     height: 52px;
     background-color: #fafafa;
     margin-top: -30px;
@@ -275,15 +277,15 @@
 }
 
 .lucky-28 .lucky-result {
-    margin-top: 6px;
-    border-top: 1px dashed #979797;
+    /*margin-top: 6px;*/
+    /*border-top: 1px dashed #979797;*/
     padding-top: 30px;
     display: flex;
     flex-direction: row
 }
 
 .lucky-28 .lucky-result .bet-table {
-    width: 790px;
+    width: 760px;
     display: flex;
     flex-direction: column
 }
@@ -307,24 +309,24 @@
 
 .lucky-28 .lucky-result .bet-table .tb-ct {
     margin-top: -6px;
-    padding: 0 18px;
+    /*padding: 0 18px;*/
     display: flex;
     flex-direction: column
 }
 
 .lucky-28 .lucky-result .bet-table .tb-ct .tb-header {
     height: 34px;
-    background-color: #fffdfa;
+    background-color: #A96B94;
     border: 1px solid #e5e5e5;
     display: flex;
     flex-direction: row;
-    align-items: center
+    align-items: center;
 }
 
 .lucky-28 .lucky-result .bet-table .tb-ct .tb-header>div {
     flex: 1;
     font-size: .75rem;
-    color: #999;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center
@@ -431,4 +433,104 @@
     box-shadow: inset -2px -4px 1px #be3636, inset 3px 4px 3px #ff7a65;
     color: #fff;
     font-size: 1.375rem
+}
+
+
+
+
+
+
+
+
+
+
+
+ .lotteryRight {
+   background: #000000;
+  width: 210px;
+  /*float: right;*/
+  background: #fff;
+  margin-bottom: 0;
+  display: table-cell;
+  height:100%;
+  position:absolute;
+  top:0;
+  right:0;
+  overflow:hidden;
+}
+
+.lotteryRight  .recentCon {
+  height: 100%;
+  width: 225px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.right-part .recentBox h3 {
+  color: #9d9d9d;
+  font-size: 14px;
+  width: 170px;
+  border-bottom: 1px solid #bebcbc;
+  margin: 10px auto 20px;
+}
+
+.right-part-c + div {
+  min-height: auto;
+}
+
+.clear {
+  clear: both;
+}
+.lotteryRight {
+  background: #fff;
+  /*padding: 10px 0;*/
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px #ddd;
+  position: relative;
+}
+.lotteryRight h3 {
+  color: #9d9d9d;
+  font-size: 14px;
+  width: 170px;
+  border-bottom: 1px solid #bebcbc;
+  margin: 20px auto 20px;
+}
+
+.lotteryRight h3 span {
+  position: absolute;
+  width: 70px;
+  text-align: center;
+  left: 67px;
+  top: 12px;
+  background: #fff;
+  font-weight: bold;
+}
+.lotteryRight ul{
+  background: #fff;
+}
+.lotteryRight ul li {
+  /*height: 29px;*/
+  line-height: 29px;
+  font-size: 12px;
+  color: #828282;;
+  /*background: #fff;*/
+}
+.lotteryRight ul li  .five_issue{
+  /*color: #eb4308;*/
+}
+
+.lotteryRight ul li  .ball {
+  text-align: center;
+  width: 12px;
+  font-size: 9px;
+  letter-spacing: 7px;
+  color: #828282;
+}
+
+.lottery-record .record {
+  padding-left: 14px;
+}
+
+.chase-number {
+  margin-bottom: 30px;
 }

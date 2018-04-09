@@ -1,9 +1,9 @@
 <template>
   <div class="order-area">
     <div class="bet-table">
-      <div class="table-cap">
-        <div class="cap-ct"></div>
-      </div>
+      <!--<div class="table-cap">-->
+        <!--<div class="cap-ct"></div>-->
+      <!--</div>-->
       <div class="tb-ct">
         <div class="tb-header">
           <div class="method">玩法</div>
@@ -15,7 +15,7 @@
           <div class="tb-del">&nbsp;</div>
         </div>
         <div class="tb-body">
-          <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0%;">
+          <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0%;background: #fff">
             <div
               style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
               <div class="tb-row" v-for="(val,index) in sumList" :key="index">

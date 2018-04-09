@@ -46,7 +46,7 @@
           </div>
           <div class="cell" style="width: 20%;" v-for="(item,index) in sublotteryCode.sixOdds[2].children" :key="index">
             <div class="number" style="width: 20%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
             </div>
             <div class="odds false" style="width: 20%;" :class="{'item-selected':Inputprice['2'+index]}">
               <span>{{item.odds}}</span>
@@ -95,7 +95,7 @@
           </div>
           <div class="cell" style="width: 20%;" v-for="(item,index) in sublotteryCode.sixOdds[0].children" :key="index">
             <div class="number" style="width: 20%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
             </div>
             <div class="odds false" style="width: 20%;" :class="{'item-selected':Inputprice['0'+index]}">
               <span>{{item.odds}}</span>
@@ -116,7 +116,7 @@
       <div style="margin-top:30px;">
         <div class="bet-grid">
           <div class="cell" style="width: 20%;" v-for="(item,index) in sublotteryCode.sixOdds[1].children" :key="index">
-            <div class="label" style="width: 20%;">{{item.name}}</div>
+            <div class="label" style="width: 25%;">{{item.name}}</div>
             <div class="odds false" style="width: 20%;" :class="{'item-selected':Inputprice['1'+index]}">
               <span>{{item.odds}}</span>
             </div>

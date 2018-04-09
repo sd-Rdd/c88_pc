@@ -27,39 +27,43 @@
             <div class="user_usersafe">
                 <!-- 左侧菜单 -->
                 <!-- 会员中心菜单 -->
-                <div class="user_menu left">
-                    <h2>会员中心</h2>
-                    <ul>
-                        <router-link to="/memberCenter/person" tag="li" active-class='hover'>
-                            <i class="iconfont icon-iconfontmy"></i>
-                            <a href="javascript:;">个人中心</a>
-                        </router-link>
-                        <router-link to="/memberCenter/daili" tag="li" active-class='hover' v-if="memberData.type==2||memberData.type==3">
-                            <i class="iconfont icon-daili"></i>
-                            <a href="javascript:;">代理中心</a>
-                        </router-link>
-                        <router-link to="/memberCenter/caiwu/1" tag="li" active-class='hover'>
-                            <i class="iconfont icon-caiwu"></i>
-                            <a href="javascript:;">财务中心</a>
-                        </router-link>
-                        <router-link to="/memberCenter/bettingRecord" tag="li" active-class='hover'>
-                            <i class="iconfont icon-jiaoyi"></i>
-                            <a href="javascript:;">交易记录</a>
-                        </router-link>
-                        <router-link to="/memberCenter/setting" tag="li" active-class='hover'>
-                            <i class="iconfont icon-setting"></i>
-                            <a href="javascript:;">详细设定</a>
-                        </router-link>
-                        <router-link to="/memberCenter/peilv" tag="li" active-class='hover'>
-                            <i class="iconfont icon-peilv"></i>
-                            <a href="javascript:;">赔率详情</a>
-                        </router-link>
-                        <router-link to="/memberCenter/message" tag="li" active-class='hover'>
-                            <i class="iconfont icon-xinxi"></i>
-                            <a href="javascript:;">信息公告</a>
-                        </router-link>
-                    </ul>
-                </div>
+                <!--<div class="user_menu left">-->
+                    <!--<h2>会员中心</h2>-->
+                    <!--<ul>-->
+                        <!--<router-link to="/memberCenter/person" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-iconfontmy"></i>-->
+                            <!--<a href="javascript:;">个人中心</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/daili" tag="li" active-class='hover' v-if="memberData.type==2||memberData.type==3">-->
+                            <!--<i class="iconfont icon-daili"></i>-->
+                            <!--<a href="javascript:;">代理中心</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/caiwu/1" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-caiwu"></i>-->
+                            <!--<a href="javascript:;">财务中心</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/bettingRecord" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-jiaoyi"></i>-->
+                            <!--<a href="javascript:;">交易记录</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/setting" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-setting"></i>-->
+                            <!--<a href="javascript:;">详细设定</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/peilv" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-peilv"></i>-->
+                            <!--<a href="javascript:;">赔率详情</a>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/memberCenter/message" tag="li" active-class='hover'>-->
+                            <!--<i class="iconfont icon-xinxi"></i>-->
+                            <!--<a href="javascript:;">信息公告</a>-->
+                        <!--</router-link>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+
+
+
                 <div class="user_right right">
                     <router-view></router-view>
                 </div>
@@ -144,7 +148,7 @@ export default {
 }
 
 .usercenter {
-  width: 998px !important;
+  width: 980px !important;
   margin-bottom: 37px;
   margin: 0 auto;
   overflow: hidden;
@@ -197,7 +201,7 @@ export default {
           }
           &.hover {
             border-left: 2px solid #e94335;
-            background: #f8f8f8;
+            /*background: #f8f8f8;*/
             z-index: 110;
             left: 0px;
             padding-left: 1px;
@@ -223,7 +227,7 @@ export default {
       float: left;
     }
     .user_right {
-      width: 820px;
+      min-width: 980px;
     }
     .right {
       overflow: hidden;

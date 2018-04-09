@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <head_1></head_1>
+    <!--<head_1></head_1>-->
     <head_2></head_2>
     <head_3></head_3>
   </div>

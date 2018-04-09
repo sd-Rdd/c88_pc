@@ -1,7 +1,7 @@
 <template>
     <div class="lottery-record animated fadeInRightBig">
         <div class="record">
-            <div v-show="Issue==1" v-if="resultList.length!=0">
+            <div  v-if="resultList.length!=0">
                 <div class="one_issue">
                     第
                     <span>{{resultList[0].issueNo}}</span>
@@ -12,33 +12,34 @@
                         <div>{{val}}</div>
                         <!-- small_ball -->
                     </div>
-                    <div v-else style="margin-right:5px;">
+                    <div v-else style="margin-right:4px;">
                         <div style="width: 24px;height: 24px;font-size: 0.875rem;line-height:24px;">{{val}}</div>
                     </div>
                 </div>
             </div>
 
-            <div class="five-group" v-show="Issue==2" v-if="resultList.length!=0">
-                <div class="group" v-for="(val,index) in resultList" :key="index">
-                    <span class="five_issue">
-                        第
-                        <span>{{val.issueNo}}</span>期：
-                    </span>
-                    <div class="ball null" v-for="(val1,index) in val.lotteryResult" :key="index">{{val1}}</div>
-                </div>
-            </div>
+            <!--<div class="five-group" v-show="Issue==2" v-if="resultList.length!=0">-->
+                <!--<div class="group" v-for="(val,index) in resultList" :key="index">-->
+                    <!--<span class="five_issue">-->
+                        <!--第-->
+                        <!--<span>{{val.issueNo}}</span>期：-->
+                    <!--</span>-->
+                    <!--<div class="ball null" v-for="(val1,index) in val.lotteryResult" :key="index">{{val1}}</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
-        <div class="issue-select">
-            <button class="btn" @click="selectIssue(1)" :class="{active:Issue==1}">近一期</button>
-            <button class="btn" @click="selectIssue(2)" :class="{active:Issue==2}">近五期</button>
-        </div>
+        <!--<div class="issue-select">-->
+            <!--<button class="btn" @click="selectIssue(1)" :class="{active:Issue==1}">近一期</button>-->
+            <!--<button class="btn" @click="selectIssue(2)" :class="{active:Issue==2}">近五期</button>-->
+        <!--</div>-->
+
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            Issue: 1,
+//            Issue: 1,
         }
     },
     computed: {

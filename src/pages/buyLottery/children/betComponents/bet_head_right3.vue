@@ -26,10 +26,6 @@
                 </div>
             </div>
         </div>
-        <div class="issue-select">
-            <button class="btn" @click="selectIssue(1)" :class="{active:Issue==1}">近一期</button>
-            <button class="btn" @click="selectIssue(2)" :class="{active:Issue==2}">近五期</button>
-        </div>
     </div>
 </template>
 <script>

@@ -40,7 +40,7 @@
         </div>
         <div class="cell" style="width: 20%;" v-for="(item,index2) in item.children" :key="index2">
           <div class="number" style="width: 20%;">
-            <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
+            <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">{{item.name}}</span>
           </div>
           <div class="odds false" style="width: 20%;" :class="{'item-selected':Inputprice[index1+''+Number(index2)]}">
             <span>{{item.odds}}</span>

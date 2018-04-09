@@ -36,7 +36,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">01</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">01</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['01']"></el-checkbox>
@@ -44,7 +44,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">11</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">11</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['11']"></el-checkbox>
@@ -52,7 +52,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">21</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">21</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['21']"></el-checkbox>
@@ -60,7 +60,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">31</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">31</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['31']"></el-checkbox>
@@ -68,7 +68,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">41</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">41</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['41']"></el-checkbox>
@@ -78,7 +78,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">02</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">02</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['02']"></el-checkbox>
@@ -86,7 +86,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">12</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">12</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['12']"></el-checkbox>
@@ -94,7 +94,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">22</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">22</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['22']"></el-checkbox>
@@ -102,7 +102,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">32</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">32</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['32']"></el-checkbox>
@@ -110,7 +110,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">42</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">42</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['42']"></el-checkbox>
@@ -120,7 +120,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">03</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">03</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['03']"></el-checkbox>
@@ -128,7 +128,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">13</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">13</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['13']"></el-checkbox>
@@ -136,7 +136,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">23</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">23</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['23']"></el-checkbox>
@@ -144,7 +144,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">33</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">33</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['33']"></el-checkbox>
@@ -152,7 +152,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">43</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">43</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['43']"></el-checkbox>
@@ -162,7 +162,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">04</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">04</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['04']"></el-checkbox>
@@ -170,7 +170,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">14</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">14</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['14']"></el-checkbox>
@@ -178,7 +178,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">24</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">24</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['24']"></el-checkbox>
@@ -186,7 +186,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">34</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">34</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['34']"></el-checkbox>
@@ -194,7 +194,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">44</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">44</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['44']"></el-checkbox>
@@ -204,7 +204,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">05</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">05</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['05']"></el-checkbox>
@@ -212,7 +212,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">15</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">15</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['15']"></el-checkbox>
@@ -220,7 +220,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">25</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">25</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['25']"></el-checkbox>
@@ -228,7 +228,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">35</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">35</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['35']"></el-checkbox>
@@ -236,7 +236,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">45</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">45</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['45']"></el-checkbox>
@@ -246,7 +246,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">06</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">06</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['06']"></el-checkbox>
@@ -254,7 +254,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">16</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">16</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['16']"></el-checkbox>
@@ -262,7 +262,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">26</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">26</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['26']"></el-checkbox>
@@ -270,7 +270,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">36</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">36</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['36']"></el-checkbox>
@@ -278,7 +278,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">46</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">46</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['46']"></el-checkbox>
@@ -288,7 +288,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">07</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">07</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['07']"></el-checkbox>
@@ -296,7 +296,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">17</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">17</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['17']"></el-checkbox>
@@ -304,7 +304,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">27</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">27</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['27']"></el-checkbox>
@@ -312,7 +312,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">37</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">37</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['37']"></el-checkbox>
@@ -320,7 +320,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">47</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">47</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['47']"></el-checkbox>
@@ -330,7 +330,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">08</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">08</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['08']"></el-checkbox>
@@ -338,7 +338,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">18</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">18</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['18']"></el-checkbox>
@@ -346,7 +346,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">28</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">28</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['28']"></el-checkbox>
@@ -354,7 +354,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">38</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">38</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['38']"></el-checkbox>
@@ -362,7 +362,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">48</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">48</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['48']"></el-checkbox>
@@ -372,7 +372,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">09</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">09</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['09']"></el-checkbox>
@@ -380,7 +380,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">19</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">19</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['19']"></el-checkbox>
@@ -388,7 +388,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">29</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">29</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['29']"></el-checkbox>
@@ -396,7 +396,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">39</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">39</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['39']"></el-checkbox>
@@ -404,7 +404,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">49</span>
+              <span style="background-color: rgb(106, 204, 123); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">49</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['49']"></el-checkbox>
@@ -414,7 +414,7 @@
         <div class="row">
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">10</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">10</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['10']"></el-checkbox>
@@ -422,7 +422,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">20</span>
+              <span style="background-color: rgb(81, 171, 240); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">20</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['20']"></el-checkbox>
@@ -430,7 +430,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">30</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">30</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['30']"></el-checkbox>
@@ -438,7 +438,7 @@
           </div>
           <div class="cell" style="width: 20%;">
             <div class="number" style="width: 50%;">
-              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 28px; height: 28px; text-align: center; line-height: 28px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">40</span>
+              <span style="background-color: rgb(244, 89, 89); font-size: 12px; background-size: 100%; cursor: default; width: 24px; height: 24px; text-align: center; line-height: 24px; color: rgb(255, 255, 255); border: none; border-radius: 50%;">40</span>
             </div>
             <div class="select" style="width: 50%;">
               <el-checkbox v-model="moreCheck['40']"></el-checkbox>

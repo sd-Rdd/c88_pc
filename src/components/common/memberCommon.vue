@@ -4,7 +4,7 @@
             <div class="user_header_nav">
                 <ul>
                     <slot name="nav">
-                        <li class="hover">
+                        <li class="hover" >
                             <a href="javascript:;">{{menu}}</a>
                         </li>
                     </slot>
@@ -28,35 +28,32 @@ export default {
   .user_header {
     margin-top: 0px;
     .user_header_nav {
-      background: #fa5a1c;
-      height: 40px;
+      background: #F8F5F5;
+      /*height: 40px;*/
       ul {
         overflow: hidden;
+        background: #F8F5F5;
         li {
           float: left;
-          font-size: 1rem;
           overflow: hidden;
-          padding-top: 4px;
-          margin-left: 4px;
+          border-right: 1px solid #E5E5E5;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 10px;
+          font-size: 14px;
+          color: #696969;
           &.hover {
-            a {
               background: #fff;
-              color: #fa5a1c;
-            }
-          }
-          &:hover {
-            a {
-              background: #fff;
-              color: #fa5a1c;
-            }
+              border-top: 5px solid #694D85;
           }
           a {
-            color: #fff;
+            color: #696969;
             text-decoration: none;
-            display: block;
-            line-height: 36px;
-            padding-left: 20px;
-            padding-right: 20px;
+          }
+        }
+        &.hover {
+          li {
+            background: #fff;
           }
         }
       }
@@ -65,7 +62,9 @@ export default {
   .user_body {
     border: 1px solid #ddd;
     border-top: none;
+    min-height: 487px;
     overflow: hidden;
+    background: #fff;
   }
 }
 </style>

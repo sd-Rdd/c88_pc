@@ -26,21 +26,27 @@
           <router-link tag="button" type="button" class="left d-btn reg-btn btn" name="register" id="register" to="/register">注册</router-link>
         </div>
         <div class="logined" v-else>
-          <em>您好，</em>
-          <span class="username" id="usernameShow">{{user.memberName}}</span>
-          <em>可用余额：</em>
-          <span class="money" id="moneyShow">{{balance|transforBalance}}</span>
-          <a @click="refreshBalance">刷新</a>
-          <i></i>
-          <a @click="openWin('/memberCenter/person')">会员中心</a>
-          <i></i>
-          <a class="red user_goto_recharge isTry" @click="openWin('/memberCenter/caiwu/1')" v-if="user.type!=0">充值</a>
-          <i v-if="user.type!=0"></i>
-          <a class="user_goto_withdraw isTry" @click="openWin('/memberCenter/caiwu/2')" v-if="user.type!=0">提现</a>
-          <i v-if="user.type!=0"></i>
-          <a @click="openWin('/memberCenter/bettingRecord')">投注记录</a>
-          <i></i>
-          <a id="userLogout" @click="quit">退出</a>
+          <div>
+            <em>欢迎您，</em>
+            <span class="username" id="usernameShow">{{user.memberName}}</span>
+            <span>预留信息：</span>
+            <a id="userLogout" @click="quit">退出</a>
+          </div>
+          <div class="fbottom">
+            <em>余额：</em>
+            <span class="money" id="moneyShow">{{balance|transforBalance}}</span>
+            <!--<a @click="refreshBalance">刷新</a>-->
+            <!--<a @click="openWin('/memberCenter/person')">会员中心</a>-->
+            <a class="user_goto_recharge isTry t_btn" @click="openWin('/memberCenter/caiwu/1')" v-if="user.type!=0">充值</a>
+            <i v-if="user.type!=0"></i>
+            <a class="user_goto_withdraw isTry t_btn" @click="openWin('/memberCenter/caiwu/2')" v-if="user.type!=0">提款</a>
+            <!--<i v-if="user.type!=0"></i>-->
+            <!--<a @click="openWin('/memberCenter/bettingRecord')">投注记录</a>-->
+            <a href="https://ssg.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=934991&configID=41704&jid=7704799059&s=1" style=" border-bottom: 1px solid #B2ACAC;
+    padding-bottom: 4px;font-size: 13px"> 客服</a>
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -183,14 +189,14 @@ export default {
 //  }
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
 .header {
   width: 1000px;
   margin: 0 auto;
 }
 
 .red {
-  color: red !important;
+  color: #DB60AE !important;
 }
 
 .main {
@@ -221,7 +227,10 @@ export default {
   /*width: 685px;*/
   width: 70%;
   overflow: hidden;
-  margin-top: 26px;
+  font-size: 18px;
+  color: #4c4a4d;
+  font-family: 'Microsoft YaHei';
+  /*margin-top: 26px;*/
 }
 
 .header .main .login_and_userinfo .login {
@@ -240,12 +249,40 @@ export default {
 
 .header .main .login_and_userinfo .logined {
   width: 100%;
-  height: 53px;
+  /*height: 53px;*/
   overflow: hidden;
   font-size: 14px;
   text-align: right;
-  line-height: 48px;
+  /*line-height: 48px;*/
   color: #333333;
+  div{
+    color: #858383;
+    font-family: microsoft yahei;
+    font-size: 13px;
+    text-align: right;
+    margin: 10px 0 12px 0;
+  }
+  #userLogout{
+    color: #a6a6a6;
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bold;
+    vertical-align: 2px;
+  }
+  .fbottom {
+    font-size: 18px;
+    color: #4c4a4d;
+  }
+  .t_btn {
+    font-size: 14px;
+    color: #fff;
+    padding: 4px 13px 5px;
+    background: #a7678c;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-left: 8px;
+  }
 }
 
 .header .main .login_and_userinfo .logined em {
@@ -262,18 +299,18 @@ export default {
 }
 
 .header .main .login_and_userinfo .logined span.money {
-  color: #e94335;
+  color: #DB60AE;
   margin-right: 4px;
 }
 
-.header .main .login_and_userinfo .logined i {
-  overflow: hidden;
-  display: inline-block;
-  width: 2px;
-  height: 14px;
-  background: #ddd;
-  vertical-align: middle;
-}
+/*.header .main .login_and_userinfo .logined i {*/
+  /*overflow: hidden;*/
+  /*display: inline-block;*/
+  /*width: 2px;*/
+  /*height: 14px;*/
+  /*background: #ddd;*/
+  /*vertical-align: middle;*/
+/*}*/
 
 .header .main .login_and_userinfo .logined a {
   overflow: hidden;

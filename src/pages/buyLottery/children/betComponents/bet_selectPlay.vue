@@ -1,18 +1,22 @@
 <template>
+  <div>
     <div class="play-choice animated shake">
-        <div class="play-list">
-            <div v-for="(item,index) in play.playList" :key="index" :class="{playActivity:item.id==playTitle}" @click="selectPlayTitle(item.id)">{{item.name}}</div>
+      <div class="play-list">
+        <div v-for="(item,index) in play.playList" :key="index" :class="{playActivity:item.id==playTitle}" @click="selectPlayTitle(item.id)">{{item.name}}</div>
+      </div>
+      <div class="method-list" v-for="(item,index) in play.methodList" :key="index" v-show="item[0].ids==playTitle">
+        <div class="method-row" v-for="(item,index) in item" :key="index">
+          <div class="group-label">{{item.ruleName}}</div>
+          <div class="radio-group" v-for="(item,index) in item.subName" :key="index" @click="selectPlaylist(item.id)" :class="{'check':item.id==ischeckedPlayList,'uncheck':item.id!=ischeckedPlayList}">
+            <!--<i class="iconfont " :class="{'icon-radio_check':item.id==ischeckedPlayList,'icon-radio_uncheck':item.id!=ischeckedPlayList}"></i>-->
+            <span>{{item.name}}</span>
+          </div>
         </div>
-        <div class="method-list" v-for="(item,index) in play.methodList" :key="index" v-show="item[0].ids==playTitle">
-            <div class="method-row" v-for="(item,index) in item" :key="index">
-                <div class="group-label">{{item.ruleName}}</div>
-                <div class="radio-group" v-for="(item,index) in item.subName" :key="index" @click="selectPlaylist(item.id)">
-                    <i class="iconfont " :class="{'icon-radio_check':item.id==ischeckedPlayList,'icon-radio_uncheck':item.id!=ischeckedPlayList}"></i>
-                    <span>{{item.name}}</span>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+  </div>
+
 </template>
 <script>
 export default {
@@ -55,12 +59,14 @@ export default {
 }
 </script>
 <style scoped>
-.icon-radio_check {
-  color: #e94335;
+.check {
+  color: #ff632c;
   font-size: 20px;
+  border: 1px solid #ff632c;
+  border-radius: 3px;
 }
 
-.icon-radio_uncheck {
+.uncheck {
   color: #ccc;
   font-size: 20px;
 }

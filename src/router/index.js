@@ -48,6 +48,7 @@ export default new Router({
           component: resolve => require(['pages/buyLottery/children/lotterys/21'], resolve),
         },
         {
+
           path: 'bet22',
           component: resolve => require(['pages/buyLottery/children/lotterys/22'], resolve),
         },
@@ -98,7 +99,7 @@ export default new Router({
         {
           path: 'bet15',
           component: resolve => require(['pages/buyLottery/children/lotterys/15'], resolve),
-        },
+        }
       ],
     },
     {

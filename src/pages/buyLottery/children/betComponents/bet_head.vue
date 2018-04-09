@@ -1,49 +1,56 @@
 <template>
-  <div class="announcement">
-    <div class="currentLottery animated fadeInLeftBig">
-      <div class="lottery_logo">
-        <img :src="logo" alt="logo">
-      </div>
-      <div class="lottery_info">
-        <div class="lottery_name">{{lotteryName}}</div>
-        <div class="issue">
-          第
-          <span>
+  <div>
+    <div class="announcement">
+      <div class="currentLottery animated fadeInLeftBig">
+        <div class="lottery_logo">
+          <img :src="logo" alt="logo">
+        </div>
+        <div class="lottery_info">
+          <div class="lottery_name">{{lotteryName}}</div>
+          <div class="issue">
+            第
+            <span>
             {{newIssue}}</span>期
         </div>
-        <div class="btn">
-          <button>
-            <i class="iconfont"></i>
-            <a href="javascript:;" target="_blank">号码走势</a>
-          </button>
+          <!--<div class="btn">-->
+          <!--<button>-->
+          <!--<i class="iconfont"></i>-->
+          <!--<a href="javascript:;" target="_blank">号码走势</a>-->
+          <!--</button>-->
+          <!--</div>-->
         </div>
       </div>
-    </div>
-    <div class="lottery-time animated fadeInDownBig">
-      <div class="prompt" v-if="isShow">已开盘，欢迎投注。距离关盘还有：</div>
-      <div class="prompt" v-else>未开盘：</div>
-      <div class="timer">
-        <div class="board" v-if="time.hour">{{time.hour}}</div>
-        <div class="board" v-else>00</div>
-        <div class="splice">
-          <img src="../../../../assets/image/dian.png" alt=":" />
+      <div class="lottery-time animated fadeInDownBig">
+        <!--<div class="prompt" v-if="isShow">已开盘，欢迎投注。距离关盘还有：</div>-->
+        <!--<div class="prompt" v-else>未开盘：</div>-->
+        <div class="timer">
+          <div class="board" v-if="time.hour">{{time.hour}}</div>
+          <div class="board" v-else>00</div>
+          <div class="splice">
+            <!--<img src="../../../../assets/image/dian.png" alt=":" />-->
+          </div>
+          <div class="board" v-if="time.minute">{{time.minute}}</div>
+          <div class="board" v-else>00</div>
+          <div class="splice">
+            <img src="../../../../assets/image/dian.png" alt=":" />
+          </div>
+          <div class="board" v-if="time.second">{{time.second}}</div>
+          <div class="board" v-else>00</div>
         </div>
-        <div class="board" v-if="time.minute">{{time.minute}}</div>
-        <div class="board" v-else>00</div>
-        <div class="splice">
-          <img src="../../../../assets/image/dian.png" alt=":" />
-        </div>
-        <div class="board" v-if="time.second">{{time.second}}</div>
-        <div class="board" v-else>00</div>
       </div>
+      <component :is="headRight"></component>
     </div>
-    <component :is="headRight"></component>
+    <div class="tools">
+        <balance></balance>
+    </div>
   </div>
+
 </template>
 <script>
 import one from "./bet_head_right1";
 import two from "./bet_head_right2";
 import three from "./bet_head_right3";
+import Balance from "./balance";
 export default {
   data() {
     return {
@@ -54,7 +61,7 @@ export default {
     };
   },
   props: ["headRight", "cha"],
-  components: { one, two, three },
+  components: { one, two, three, Balance},
   methods: {
     formate(time) {
       let cha1 = time / 1000;

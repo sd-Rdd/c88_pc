@@ -1,20 +1,21 @@
 <template>
     <div class="v_out v_out_p">
-        <div class="v_show">
-            <div class="v_cont">
-                <ul v-if="banner">
-                    <transition name="el-fade-in-linear" v-for="(item,index) in banner" :key="index">
-                    <li v-show="index==currentIndex" @click="gotoActivityPage" @mouseenter="stopFre" @mouseleave="restartFre">
-                        <img :src="item.imagUrl" width="740" height="230" :alt="item.title" >
-                    </li>
-                    </transition>
-                </ul>
-            </div>
+      <div class="v_show">
+        <div class="v_cont">
+          <ul v-if="banner">
+            <transition name="el-fade-in-linear" v-for="(item,index) in banner" :key="index">
+              <li v-show="index==currentIndex" @click="gotoActivityPage" @mouseenter="stopFre" @mouseleave="restartFre">
+                <img :src="item.imagUrl" width="980" height="240" :alt="item.title" >
+              </li>
+            </transition>
+          </ul>
         </div>
-        <ul class="circle">
-            <li v-for="(item,index) in (banner.length)" :key="index" @click="altImg(index)" :class="{cur:currentIndex==index}">{{index+1}}</li>
-        </ul>
+      </div>
+      <ul class="circle">
+        <li v-for="(item,index) in (banner.length)" :key="index" @click="altImg(index)" :class="{cur:currentIndex==index}">{{index+1}}</li>
+      </ul>
     </div>
+
 </template>
 <script>
 export default {
@@ -61,29 +62,29 @@ export default {
     }
 }
 </script>
-<style scoped>
-.cur{
-background: #f63 !important;
-}
+<style lang="less" scoped>
 
 .v_out {
-    width: 748px
+    float: right;
+    width: 980px;
+    margin: 0 0 0 0;
+
 }
 
 .v_show {
-    width: 740px;
+    width: 980px;
     overflow: hidden;
     position: relative;
-    height: 230px;
-    float: left
+    height: 240px;
+    float: left;
 }
 
-.v_cont {
-    width: 6650px;
-    position: absolute;
-    left: 0px;
-    top: 0px
-}
+/*.v_cont {*/
+    /*width: 6650px;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0*/
+/*}*/
 
 .v_cont ul {
     float: left;
@@ -92,9 +93,9 @@ background: #f63 !important;
 }
 
 .v_cont ul li {
-    width: 740px;
-    height: 230px;
-    float: left
+    /*width: 420px;*/
+    /*height: 215px;*/
+    /*float: left*/
 }
 
 .v_out_p {

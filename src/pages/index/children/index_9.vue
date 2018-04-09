@@ -1,93 +1,122 @@
 <template>
-  <div class="container">
-    <v-header></v-header>
-    <v-body></v-body>
-    <!-- 上部分 -->
-    <div class="banner">
-      <img src="../../assets/image/banner.jpg" width="980" height="240" alt="">
+  <div class="cp-game">
+    <div class="cp_title">
+      <h1>
+        <i class="ic-tt8game"></i>
+        彩票游戏
+        </h1>
     </div>
-
-    <div class="main index">
-      <!--<div class="count-down cp_game" style="display: inline-block">-->
-        <!--<div class="cp_title">-->
-          <!--<h1>-->
-            <!--<i class="ic-tt8game"></i>-->
-            <!--彩票游戏-->
-            <!--</h1>-->
-          <!--<div class="clear"></div>-->
-        <!--</div>-->
-        <!--<div class="cp_g_list">-->
-          <!--<img src="../../assets/image/img_cpgame.jpg" alt="">-->
-          <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<span></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;<em></em>&ndash;&gt;-->
-          <!--&lt;!&ndash;<a href="">&ndash;&gt;-->
-          <!--&lt;!&ndash;<p>&ndash;&gt;-->
-          <!--&lt;!&ndash;<span>本期</span>&ndash;&gt;-->
-          <!--&lt;!&ndash;</p>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<span>立即投注</span>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--&lt;!&ndash;</li>&ndash;&gt;-->
-          <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-        <!--</div>-->
-      <!--</div>-->
-      <div class="index_main"  >
-        <div class="slide">
-          <index_1></index_1>
-        </div>
-        <div class="index_box_tz">
-          <div>
-          <index_8></index_8>
+    <div class="cp_g_list">
+      <!--<img src="../../../assets/image/img_cpgame.jpg" alt="">-->
+      <ul>
+        <li class="cp_list_01" id="lottery_L-35" v-for="(item,index) in topList " :key="index">
+          <div class="imgL">
+            <img :src='item.logo'/>
           </div>
-        </div>
-      </div>
+          <div class="title">
+            <a>{{item.lotteryName}}</a>
+          </div>
+          <div class="cp_g_xh">
+            <span @click="openWin('/buyLottery/bet'+item.lotteryNumber)">立即投注</span>
+          </div>
+        </li>
+      </ul>
     </div>
-    <!-- 下半部分 -->
-    <div class="index">
-      <div class="index_box_main main">
-        <div class="left phb">
-          <index_7></index_7>
-        </div>
-      </div>
-    </div>
-    <v-foot></v-foot>
   </div>
 </template>
 <script>
-  import index_1 from './children/index_1';
-  import index_2 from './children/index_2';
-  import index_3 from './children/index_3';
-  import index_4 from './children/index_4';
-  import index_5 from './children/index_5';
-  import index_6 from './children/index_6';
-  import index_7 from './children/index_7';
-  import index_8 from './children/index_8';
-  import vHeader from 'components/header/header'
-  import vBody from 'components/common/body_fixed'
-  import vFoot from 'components/footer/footer'
+  import url from "static/url.js";
   export default {
-    components: {index_1, index_2, index_3, index_4, index_5, index_6, index_7, index_8, vHeader, vBody, vFoot},
+    props: {
+      styl: String
+    },
     data() {
-      return {}
+      return {
+        AllHideList: [],
+        arr: ["天津时时彩", "山东11选5", "新疆时时彩", "北京PK拾", "广西快三", "香港六合彩", "重庆时时彩"],
+        win: null
+      };
+    } /* slice(start,end) */,
+    computed: {
+      AllShowList() {
+        return this.AllHideList.slice(0, 4);
+      },
+      downShowList() {
+        return this.AllHideList.filter(item => {
+          return item.lotteryType == 1;
+        });
+      },
+      highHideList() {
+        return this.AllHideList.filter(item => {
+          return item.lotteryType == 0;
+        });
+      },
+      highShowList() {
+        return this.highHideList.slice(0, 4);
+      },
+      topList() {
+        return this.AllHideList.filter(item => {
+          return this.arr.slice(0, 6).includes(item.lotteryName);
+        });
+      }
+    },
+    methods: {
+      close(){
+        if (this.win) {
+          this.win.close()
+        }
+      },
+      openWin(a) {
+        this.win = window.open(url + a, "lottery", "width=1300, height=950,left=10,top=10,");
+      },
+      show1() {
+        var sort = document.getElementById("wrap-sort-all");
+        sort.classList.add("show");
+      },
+      hide1() {
+        var sort = document.getElementById("wrap-sort-all");
+        if (sort.classList.contains("show")) {
+          sort.classList.remove("show");
+        }
+      },
+      enter(a) {
+        var target = a.target;
+        if (target.childNodes.length != 1) {
+          target.firstChild.classList.add("hover");
+          target.lastChild.style.display = "block";
+        }
+      },
+      leave(a) {
+        var target = a.target;
+        if (target.childNodes.length != 1) {
+          target.firstChild.classList.remove("hover");
+          target.lastChild.style.display = "none";
+        }
+      },
+      openLotteryWin() {
+        let lottery = window.open(
+          url + "/buyLottery",
+          'lottery',
+          "width=1300, height=950,left=10,top=10,attention"
+        );
+        lottery.focus()
+      }
+    },
+    created() {
+      this.$http
+        .post("/api/lottery/list")
+        .then(res => {
+          //console.log(res.data);
+          if (res.data.status == 200) {
+            this.AllHideList = res.data.lotteryList;
+          }
+        })
+        .catch(res => console.log(res));
     },
   }
 </script>
 <style lang="less" scoped>
-  .container {
-    background: #fffaf7 url(../../assets/image/skin-img06.jpg) no-repeat center top;
-  }
-
-  .main {
-    width: 980px !important;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: #fff;
-    .cp_game {
-      margin: 20px;
-    }
+  .cp-game {
     .cp_title {
       margin-bottom: 10px;
     }
@@ -95,12 +124,12 @@
       font: normal 20px/24px "Microsoft YaHei";
       color: #333;
     }
-    .cp_title h1>i{
+    .cp_title h1 > i {
       display: inline-block;
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      background-image: url(../../assets/image/icon.png);
+      background-image: url(../../../assets/image/icon.png);
       background-repeat: no-repeat;
       vertical-align: -2px;
     }
@@ -109,80 +138,77 @@
       height: 22px;
       background-position: -70px -67px;
     }
-  }
-
-  .banner {
-    width: 980px;
-    height: 240px;
-    margin: 10px auto 0;
-    box-shadow: 0 0 9px 0 #ccc;
-  }
-
-  .index .index_main {
-    width: 420px;
-    float: right;
-    margin: 20px;
-    margin-left: 0;
-  }
-
-  .left,
-  .right {
-    overflow: hidden;
-    float: left;
-  }
-
-  .index .index_main .slide {
-    overflow: hidden;
-  }
-
-  .index .index_main .index_box_tz {
-    height:302px;
-    overflow: hidden;
-    margin-top: 10px;
-  }
-
-  .index .index_main .index_box_tz .tz_box {
-    overflow: hidden;
-    width: 493px;
-    height: 272px;
-  }
-
-  .left {
-    overflow: hidden;
-    float: left;
-  }
-
-  .right {
-    overflow: hidden;
-    float: right;
-  }
-
-  .index .index_main .index_box_tz .down_mobile_app {
-    overflow: hidden;
-    width: 240px;
-    height: 271px;
-  }
-
-  .index .index_box_main {
-    overflow: hidden;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  }
-
-  .index .index_box_main .kj {
-    overflow: hidden;
-    width: 248px;
-    margin-right: 10px;
-  }
-
-  .index .index_box_main .news {
-    overflow: hidden;
-    width: 495px;
-  }
-
-  .index .index_box_main .phb {
-    overflow: hidden;
-    margin-left: 6px;
-    padding-bottom: 2px;
+    .cp_g_list {
+      width: 500px;
+      background: #fffaf7 url(../../../assets/image/img_cpgame.jpg) no-repeat;
+      .imgL img {
+        width: 120px;
+        height: 120px;
+        margin-top: 20px;
+      }
+      .title {
+        margin-top: 15px;
+      }
+      .title>a {
+        color: #fff;
+        margin-top: 15px;
+      }
+      .title a:hover {
+        text-decoration: none;
+      }
+      .cp_g_xh > span {
+        display: inline-block;
+        width: 100px;
+        line-height: 30px;
+        font-size: 16px;
+        font-family: 'Microsoft YaHei';
+        padding-bottom: 2px;
+        color: #fff;
+        margin-top: 15px;
+        border: #fff solid 1px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+    }
+    .cp_g_list li {
+      float: left;
+      width: 160px;
+      height: 129px;
+      margin-top: 5px;
+      margin-right: 5px;
+      text-align: center;
+      background: url(../../../assets/image/img_cpgame.jpg) left top no-repeat;
+      position: relative;
+    }
+    .cp_g_list li.cp_list_01 {
+      height: 260px;
+    }
+    .cp_g_list li.cp_list_02 {
+      height: 260px;
+      background-position: -166px top;
+    }
+    .cp_g_list li.cp_list_03 {
+      height: 260px;
+      background-position: -335px top;
+    }
+    .cp_g_list li.cp_list_04 {
+      background-position: left -266px;
+    }
+    .cp_g_list li.cp_list_05 {
+      background-position: -167px -266px;
+    }
+    .cp_g_list li.cp_list_06 {
+      background-position: -335px -266px;
+    }
+    .cp_g_list li.cp_list_07 {
+      background-position: left -398px;
+    }
+    .cp_g_list li.cp_list_08 {
+      background-position: -167px -398px;
+    }
+    .cp_g_list li.cp_list_09 {
+      background-position: -335px -398px;
+    }
   }
 </style>

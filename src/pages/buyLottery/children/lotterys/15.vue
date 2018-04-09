@@ -1,22 +1,40 @@
 <template>
     <div class="lottery-main">
         <bet-header headRight='one' :cha="cha" @onGetData="getData"></bet-header>
-        <div>
+        <div  class="right-part">
+          <div class="right-part-c">
             <bet-select-play :play="xuan5" :firstDefault="stairCodeNo" :secondDefault="defaultCodeNo"></bet-select-play>
             <div class="bet-area">
-                <bet-tips></bet-tips>
-                <div class="bet-main">
-                    <betSelect-number></betSelect-number>
-                    <bet-tools></bet-tools>
-                </div>
-                <div class="bet-result">
-                    <bet-result></bet-result>
-                </div>
-                <div class="chase-number">
-                    <bet-chase-number></bet-chase-number>
-                </div>
+              <bet-tips></bet-tips>
+              <div class="bet-main">
+                <betSelect-number></betSelect-number>
+                <bet-tools></bet-tools>
+              </div>
+
             </div>
+          </div>
+
+          <div class="lotteryRight">
+            <h3 class="re">
+              <span>近期开奖</span>
+            </h3>
+            <div class="recentCon re">
+              <ul>
+                <li>
+                  <start-lotto></start-lotto>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="clear"></div>
         </div>
+
+      <div class="bet-result">
+        <bet-result></bet-result>
+      </div>
+      <div class="chase-number">
+        <bet-chase-number></bet-chase-number>
+      </div>
     </div>
 </template>
 <script>
@@ -27,6 +45,7 @@ import betSelectNumber from '../betComponents/bet_selectNumber'
 import betTools from '../betComponents/bet_tools'
 import betResult from '../betComponents/bet_result'
 import betChaseNumber from '../betComponents/bet_chasenumber'
+import startLotto from '../betComponents/startlotto'
 import tools from 'tools/tools.js'
 import { AllPlay } from 'commonData/AllPlay.js'
 export default {
@@ -65,7 +84,8 @@ export default {
     betSelectNumber,
     betTools,
     betResult,
-    betChaseNumber
+    betChaseNumber,
+    startLotto
   },
   destroyed() {
     this.$store.commit('initLotteryData')

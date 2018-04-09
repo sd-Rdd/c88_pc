@@ -1,85 +1,147 @@
 <template>
-    <div style="position: relative; overflow: hidden; width: 100%; height: 100%; flex: 1 1 0%;">
-        <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
-            <div class="list">
-                <div class="menu-lobby">
-                    <div class="logo">
-                        <i class="iconfont icon-home" style="color: rgb(255, 255, 255); font-size: 20px;"></i>
-                    </div>
-                    <router-link to='/buyLottery'>购彩大厅</router-link>
-                    <div class="logo"></div>
+  <div>
+    <transition name="fade">
+      <div v-show="isShow" class="lty_list">
+        <div class="list">
+          <div class="menu-lobby">
+            <img src="" alt="">
+            <div class="logo"></div>
+          </div>
+          <!-- 各个彩种的展示开始 -->
+          <div class="sidebar_con">
+            <div class="category" v-for="(val,index) in lotteryCard" :key="index">
+              <router-link :to="'/buyLottery/bet'+val.id" class="category-info">
+                <div class="category-name">{{val.lotteryName}}</div>
+                <div class="counter">
+                  <counter :endtime="val.runLotteryTime" :startTime="sysDate" @onTimeOut="onTimeOut(val.id)"
+                           style="color: #fff;font-size: 12px"></counter>
                 </div>
-                <!-- 各个彩种的展示开始 -->
-                <div class="category" v-for="(item,index) in result" :key="index">
-                    <!-- 标题部分 -->
-                    <div class="category-info" @click="obj[item.catName]=!obj[item.catName]">
-                        <div class="logo">
-                            <img :src="item.showImg" />
-                        </div>
-                        <div class="category-name null">{{item.catName}}</div>
-                        <div class="logo">
-                            <i class="iconfont icon-arrow-right" :class="{'rotateChanged':isshow[item.catName]}"></i>
-                        </div>
-                    </div>
-                    <!-- 内容部分 -->
-                    <div class="category-detail" v-show="obj[item.catName]">
-                        <router-link class="lottery-info" v-for="(item1,index) in item.lotteryList" :key="index" :to="'/buyLottery/bet'+item1.id" active-class="active">
-                            <span>{{item1.lotteryName}}</span>
-                        </router-link>
-                    </div>
-                </div>
-                <!-- 各个彩种的展示结束 -->
+              </router-link>
             </div>
+          </div>
+
+          <!-- 各个彩种的展示结束 -->
+          <div class="hide" @click="openClose(1)">
+            <span >点击隐藏</span>
+          </div>
         </div>
-        <div style="position: absolute; height: 6px; transition: opacity 200ms; opacity: 0; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;">
-            <div style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;"></div>
+      </div>
+    </transition>
+    <transition  name="fade">
+      <div v-show="!isShow" class="lty_list">
+        <div @click="openClose(1)" class="openMenu">
+          <span v-text="btnText"></span>
         </div>
-        <div style="position: absolute; width: 6px; transition: opacity 200ms; opacity: 0; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;">
-            <div style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); height: 0px;"></div>
-        </div>
-    </div>
+      </div>
+    </transition>
+
+
+  </div>
 </template>
 <script>
-export default {
+  import counter from './betComponents/counter'
+  import url from "static/url.js";
+  export default {
     data() {
-        return {
-            result: [],
-            obj:{}//记录具体玩法列表是否展开的数据
-        }
+      return {
+//        result: [],
+        lotteryCard: null,
+        obj: {}, //记录具体玩法列表是否展开的数据
+        isShow: true,
+        btnText: "打开菜单",
+        screenWidth: document.body.clientWidth
+      }
     },
+    components: {counter},
     created() {
-        this.getMenuList()
+//      this.getMenuList()
+      this.getList()
     },
-    computed:{
-        isshow(){
-            let obj={};
-            this.result.forEach(item=> {
-                obj[item.catName]=false;
-            });
-            this.obj=obj;
-            return obj
-        }
+    mounted() {
+      const that = this
+      window.onresize = () => {
+        return (() => {
+          window.screenWidth = document.body.clientWidth
+          that.screenWidth = window.screenWidth
+        })()
+      }
+      console.log(this.screenWidth)
+    },
+    computed: {
+      isshow(){
+        let obj = {};
+        this.result.forEach(item => {
+          obj[item.catName] = false;
+        });
+        this.obj = obj;
+        return obj
+      }
     },
     methods: {
-        getMenuList() {
-            this.$http.post('/api/show/cat/list')
-                .then(res => {
-                    //console.log(res.data)
-                    if (res.data.status == "200") {
-                        this.result = res.data.result;
-                    }
-                })
-                .catch(err => console.log(err))
+//      getMenuList() {
+//        this.$http.post('/api/show/cat/list')
+//          .then(res => {
+//            //console.log(res.data)
+//            if (res.data.status == "200") {
+//              this.result = res.data.result;
+//            }
+//          })
+//          .catch(err => console.log(err))
+//      },
+      openClose () {
+        this.isShow = !this.isShow
+      },
+      getList(){
+        this.$http.post('/api/lottery/listLottery', {})
+          .then(res => {
+            console.log(res.data)
+            if (res.data.status == 200) {
+              this.lotteryCard = res.data.lotteryList
+              this.sysDate = res.data.sysDate
+              this.fullscreenLoading = false
+            }
+          })
+          .catch(err => console.log(err))
+      },
+      onTimeOut(id){
+        this.getList()
+      }
+    },
+    watch: {
+      screenWidth (val) {
+        this.screenWidth = val
+        if (val < 1300) {
+          this.isShow = false
         }
+      }
     }
-}
+  }
 </script>
-<style scoped>
-a:hover {
-    text-decoration: none !important;
-}
+<style lang="less" scoped>
+  .fade-enter-active, .fade-leave-active {
+    transition: all .8s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(-110px);
+  }
 
-* {
+  .lty_list {
+    position: absolute;
+    /*top: 10px;*/
+    /*left: -210px;*/
+    top: 76px;
+    left: 0;
+    z-index: 300;
+    padding-left: 20px;
+    /*background: url(../../../assets/image/sc_sidebar_mrbg.jpg) no-repeat 10px 0;*/
+  }
+
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  * {
     padding: 0;
     margin: 0;
     font-size: 1rem;
@@ -88,5 +150,7 @@ a:hover {
     outline: none;
     cursor: inherit;
     box-sizing: border-box;
-}
+  }
+
+
 </style>

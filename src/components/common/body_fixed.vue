@@ -1,237 +1,134 @@
 <template>
-    <div v-show="isShow">
-        <div class="zs_box zs_left">
-            <a class="zs_close" @click="close_lr" href="javascript:;">关闭</a>
-            <li class="free_play">
-                <i class="iconfont icon-youxishoubing"></i>
-                <router-link to="/tryPlay" class="ftszie">免费试玩</router-link>
-            </li>
-            <li class="help_center">
-                <i class="iconfont icon-bangzhuzhongxin"></i>
-                <router-link to="/helpCenter" class="ftszie">帮助中心</router-link>
-            </li>
-            <a class="qr" href="">
-                <!-- <img src="https://cpweb.kosunmobile.com/c9.kosungames.com/upload/596f10066891c.png" alt=""> -->
-            </a>
-            <span class="foot">
-              <img src="../../assets/image/Android-100.png" alt="" style="width: 116px">
-                <em class="b">扫一扫</em>
-                <em class="s">安卓 APP下载</em>
-            </span>
-            <a class="zs_top" href="javascript:;" @click="totop">
-                <i class="go_top"></i> 返回顶部</a>
-        </div>
+  <div v-show="isShow">
+    <ul class="zs_box zs_right">
+      <li class="active">
+        <a href="/" class="ftszie">
+          <i class="iconfont icon-service_2"></i>
+          返回首页
+        </a>
+      </li>
+      <li>
+        <router-link to="/tryPlay" class="ftszie">
+          <i class="iconfont icon-youxishoubing"></i>
+          免费试玩
+        </router-link>
+      </li>
 
-        <div class="zs_box zs_right">
+        <li>
+          <a href="https://ssg.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=934991&configID=41704&jid=7704799059&s=1
+" class="ftszie">
+            <i class="iconfont icon-service_2"></i>
+            在线客服
+          </a>
+        </li>
 
-            <a class="zs_close" @click="close_lr" href="javascript:;">关闭</a>
+        <li>
+          <a :href="service" class="ftszie">
+            <i class="iconfont icon-jiancha"></i>
+            QQ客服
+          </a>
+        </li>
 
-            <li class="online_sup">
-                <i class="iconfont icon-service_2"></i>
-                <a href="https://ssg.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=934991&configID=41704&jid=7704799059&s=1
-" class="ftszie">在线客服</a>
-            </li>
+      <li>
+        <router-link to="/helpCenter" class="ftszie">
+          <i class="iconfont icon-bangzhuzhongxin"></i>
+          帮助中心
+        </router-link>
+      </li>
 
-            <li class="line_exa">
-                <i class="iconfont icon-jiancha"></i>
-                <a :href="service" class="ftszie">QQ客服</a>
-                <!--<a href="#" @click="serviceQQ" class="ftszie"> QQ客服</a>-->
-            </li>
 
-            <a class="qr" href="">
-                <!-- <img src="https://cpweb.kosunmobile.com/c9.kosungames.com/upload/596f101c57609.png" alt=""> -->
-            </a>
+      <li>
+        <a  href="javascript:;" class="zs_top" @click="totop">
+          <i class="iconfont go_top"></i>
+          返回顶部
+        </a>
+      </li>
 
-            <span class="foot">
-                <img src="../../assets/image/ios-100.png" alt="" style="width: 116px">
-                <em class="b">扫一扫</em>
-                <em class="s">苹果 APP下载</em>
-            </span>
-
-            <a class="zs_top" href="javascript:;" @click="totop">
-                <i class="go_top"></i> 返回顶部</a>
-
-        </div>
-    </div>
+    </ul>
+  </div>
 </template>
 <script>
-export default {
+  export default {
     data(){
-        return {
-            isShow:true,
-            service: ''
-        }
+      return {
+        isShow: true,
+        service: ''
+      }
     },
     methods: {
-        close_lr() {
-            this.isShow=false;
-        },
-        totop() {
-            window.scrollTo(0, 0);
-        },
-        serviceQQ() {
-            this.$http.post("/sysAllocation/getCustomerQQ",{})
-              .then(res=>{
-                if (res.data.status === '200') {
-                    let str = res.data.result[0].qq
-                    this.service = `tencent://message/?uin=${str}&Site=web&Menu=yes`
-                }
-            })
-        }
+      close_lr() {
+        this.isShow = false;
+      },
+      totop() {
+        window.scrollTo(0, 0);
+      },
+      serviceQQ() {
+        this.$http.post("/sysAllocation/getCustomerQQ", {})
+          .then(res => {
+            if (res.data.status === '200') {
+              let str = res.data.result[0].qq
+              this.service = `tencent://message/?uin=${str}&Site=web&Menu=yes`
+            }
+          })
+      }
     },
     created() {
-        this.serviceQQ()
+      this.serviceQQ()
     }
-}
+  }
 </script>
-<style scoped>
-.ftszie {
-    font-size: 12px;
-}
-
-a {
+<style lang="less" scoped>
+  a {
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.zs_box {
-    background: #E94335;
-    width: 126px;
+  }
+  .zs_box {
     position: fixed;
-    top: 30%;
-    z-index:10000000;
-}
-
-.zs_box a.qr {
-    display: inline-block;
-    width: 116px;
-    margin: 0px 5px
-}
-
-.zs_box a.qr img {
-    display: inline-block;
-    width: 116px
-}
-
-.zs_box a.zs_close {
-    overflow: hidden;
-    position: absolute;
-    top: -18px;
-    background: url(https://cpweb.kosunmobile.com/c9/Public/static/images/top_head.png);
-    background-size: 110px 18px;
-    display: block;
-    height: 18px;
-    width: 110px;
-    left: 7px;
-    text-indent: -999px
-}
-
-.zs_box a.zs_top {
-    overflow: hidden;
-    display: block;
-    color: #FFF;
+    right: 0;
+    top: 100px;
+    width: 80px;
+    z-index: 999;
     font-size: 12px;
     text-align: center;
-    border-top: 5px solid #fff;
-    height: 30px;
-    line-height: 30px;
-    text-decoration: none
-}
-
-.zs_box a.zs_top i {
+    .active {
+      background: #da79bc;
+      filter: none;
+    }
+    li {
+      height: 60px;
+      padding-top: 15px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      background: rgba(0,0,0,0.6);
+      -webkit-transition: background 0.3s linear;
+      -moz-transition: background 0.3s linear;
+      -o-transition: background 0.3s linear;
+      transition: background 0.3s linear;
+      i {
+        display: block;
+        width: 24px;
+        height: 23px;
+        margin: 0 0 10px 29px;
+      }
+      a {
+        display: block;
+        color: #fff;
+      }
+    }
+    li:hover {
+        background: #da79bc;
+        filter: none;
+    }
+  }
+  .zs_box a.zs_top i {
     overflow: hidden;
     vertical-align: middle;
     background: url(https://cpweb.kosunmobile.com/c9/Public/static/images/go_top.png);
     background-size: 12px 14px;
     width: 12px;
     height: 14px;
-    display: inline-block
-}
-
-.zs_box a.zs_top:focus {
-    background: #f50
-}
-
-.zs_box a.zs_top:hover {
-    background: #FF8434
-}
-
-.zs_box.zs_left {
-    left: 0px
-}
-
-.zs_box.zs_right {
-    right: 0px
-}
-
-.zs_box li {
-    overflow: hidden;
-    width: 116px;
-    height: 30px;
-    color: #333;
-    font-size: 14px;
-    background: #fff;
-    margin: 5px;
-    text-align: center;
-    line-height: 30px
-}
-
-.zs_box li i {
-    overflow: hidden
-}
-
-.zs_box li a {
-    color: #333333
-}
-
-.zs_box li.free_play {
-    overflow: hidden
-}
-
-.zs_box li.help_center {
-    overflow: hidden
-}
-
-.zs_box li.online_sup {
-    overflow: hidden
-}
-
-.zs_box li.line_exa {
-    overflow: hidden
-}
-
-.zs_box span {
-    overflow: hidden
-}
-
-.zs_box span.foot {
-    overflow: hidden;
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-    margin-top: 5px
-}
-
-.zs_box span.foot em {
-    overflow: hidden;
-    color: #6B3200;
     display: block;
-    text-align: center;
-    width: 100%
-}
+    margin-left: 34px;
+  }
 
-.zs_box span.foot em.b {
-    overflow: hidden;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.zs_box span.foot em.s {
-    overflow: hidden;
-    font-size: 10px;
-    margin-bottom: 5px;
-}
 </style>

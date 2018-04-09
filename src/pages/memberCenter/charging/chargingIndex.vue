@@ -49,7 +49,7 @@
     <!--</div>-->
     <!--</div>-->
 
-    :\Microsoft VS Code\bin;C:\Users\xue\AppData\Local\GitHubDesktop\bin;C:\Users\xue\AppData\Roaming\npm
+    <!--:\Microsoft VS Code\bin;C:\Users\xue\AppData\Local\GitHubDesktop\bin;C:\Users\xue\AppData\Roaming\npm-->
 
   </div>
 </template>
